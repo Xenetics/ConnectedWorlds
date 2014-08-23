@@ -84,8 +84,10 @@
   <ItemGroup>
     <ClCompile Include="FractureGame.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />
@@ -100,7 +102,9 @@
   <ItemGroup>
     <ClInclude Include="FractureGame.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\..\..\..\Desktop\Untitled.bmp" />
