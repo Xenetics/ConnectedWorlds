@@ -84,6 +84,7 @@
     <ClCompile Include="FractureGame.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SDL2.dll" />
@@ -97,6 +98,7 @@
   <ItemGroup>
     <ClInclude Include="FractureGame.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Sprite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
