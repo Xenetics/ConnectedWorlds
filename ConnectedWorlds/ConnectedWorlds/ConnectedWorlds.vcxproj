@@ -55,7 +55,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\SDL\boost_1_56_0\boost_1_56_0;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\include;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\SDL\Box2D_v2.3.0\Box2D_v2.3.0\Box2D;C:\SDL\boost_1_56_0\boost_1_56_0;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\include;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

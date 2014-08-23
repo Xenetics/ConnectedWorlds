@@ -2,6 +2,7 @@
 #include <boost/regex.hpp>
 #include <iostream>
 #include <string>
+#include <Box2D/Box2D.h>
 
 #define DEFAULT_SCREEN_WIDTH 1280
 #define DEFAULT_SCREEN_HEIGHT 720
