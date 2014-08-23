@@ -11,7 +11,7 @@
 #define CLEAR_COLOUR_G 0
 #define CLEAR_COLOUR_B 0
 
-Game::Game(void) : running_(true), screenWidth_(DEFAULT_SCREEN_WIDTH), screenHeight_(DEFAULT_SCREEN_HEIGHT)
+Game::Game(void) : running_(true), screenWidth_(DEFAULT_SCREEN_WIDTH), screenHeight_(DEFAULT_SCREEN_HEIGHT), pTestSprite_(0)
 {
 	//example code for Boost can be and should deleted
 	std::string line;
@@ -34,6 +34,7 @@ Game::~Game()
 
 void Game::InitSDL()
 {
+
 	SDL_CreateWindowAndRenderer(1280, 720, SDL_WINDOW_SHOWN, &sdlWindow, &sdlRenderer);
 
 	SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, 255);
@@ -46,6 +47,8 @@ void Game::InitSDL()
 void Game::InitTestImage()
 {
 
+	texture = IMG_LoadTexture(sdlRenderer, "untitled.bmp");
+	pTestSprite_ = new Sprite(texture, b2Vec2((float)0, (float)0));
 }
 
 void Game::Run()
@@ -83,7 +86,7 @@ void Game::clearBackBuffer()
 
 void Game::draw()
 {
-
+	pTestSprite_->Draw(sdlRenderer, b2Vec2((float)0, (float)0));
 }
 
 void Game::handleEvent(const SDL_Event& newEvent)

@@ -5,12 +5,15 @@
 #include <DirectXMath.h>
 #include "SDL.h"
 #include "SDL_image.h"
+#include "Sprite.h"
 
 class Game
 {
 protected:
 	SDL_Window *sdlWindow;
 	SDL_Renderer *sdlRenderer;
+
+	SDL_Texture* texture;
 
 	virtual void draw();
 	virtual void loadAssets() = 0;
@@ -30,6 +33,9 @@ private:
 
 	Uint32 clearColour_;
 
+	// For testing purposes
+	Sprite* pTestSprite_;
+	
 
 
 public:

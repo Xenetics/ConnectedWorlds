@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\lib\x86;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\lib\x86;$(LibraryPath)</LibraryPath>
-    <ExecutablePath>C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3;$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3;$(ExecutablePath)</ExecutablePath>
     <IncludePath>C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -99,6 +99,9 @@
     <ClInclude Include="FractureGame.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Sprite.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\..\..\..\Desktop\Untitled.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
