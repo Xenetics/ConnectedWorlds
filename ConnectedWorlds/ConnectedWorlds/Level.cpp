@@ -1,9 +1,8 @@
 #include "Level.h"
 
 
-Level::Level(int type)
+Level::Level()
 {
-	levelType = type;
 }
 
 

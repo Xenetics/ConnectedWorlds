@@ -2,10 +2,10 @@
 
 #include "World.h"
 
-class Level : public World
+class Level // : World
 {
 public:
-	Level(int type);
+	Level();
 	virtual ~Level();
 private:
 	int levelType;

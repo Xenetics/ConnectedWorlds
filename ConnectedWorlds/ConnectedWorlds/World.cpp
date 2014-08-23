@@ -13,12 +13,12 @@ World::~World()
 
 int World::GetWidth()
 {
-
+	return 0;
 }
 
 int World::GetHeight()
 {
-
+	return 0;
 }
 
 void World::ChangeBackground(bool isForward)
