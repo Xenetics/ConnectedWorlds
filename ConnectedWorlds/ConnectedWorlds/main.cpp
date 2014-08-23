@@ -1,9 +1,16 @@
 #include <stdlib.h>
 #include <time.h>
 #include "SDL.h"
+#include "FractureGame.h"
 
 int main(int argc, char *argv[])
 {
+
+	Game* game = new FractureGame();
+	game->InitSDL();
+	game->Run();
+	game->Clean();
+
 	SDL_Surface* Surf_Display;
 
 	SDL_Window *sdlWindow;
@@ -13,9 +20,6 @@ int main(int argc, char *argv[])
 	SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, 255);
 	SDL_RenderClear(sdlRenderer);
 	SDL_RenderPresent(sdlRenderer);
-
-	for (;;){}
-	
 
 	SDL_Quit();
 	return 0;
