@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <LibraryPath>C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\lib\x86;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\lib\x86;$(LibraryPath)</LibraryPath>
-    <ExecutablePath>C:\Users\Rory\SDKS\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0;$(ExecutablePath)</ExecutablePath>
+    <ExecutablePath>C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3;$(ExecutablePath)</ExecutablePath>
     <IncludePath>C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -82,6 +82,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SDL2.dll" />
+    <None Include="SDL2_image.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="SDL2.lib" />
+    <Library Include="SDL2main.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
