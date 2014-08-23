@@ -36,19 +36,16 @@ void Game::InitSDL()
 {
 
 	SDL_CreateWindowAndRenderer(1280, 720, SDL_WINDOW_SHOWN, &sdlWindow, &sdlRenderer);
-
 	SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, 255);
-	SDL_RenderClear(sdlRenderer);
-	SDL_RenderPresent(sdlRenderer);
 
 	loadAssets();
 }
 
-void Game::InitTestImage()
+void Game::InitTestImage() // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 {
 
-	SDL_Texture* texture = IMG_LoadTexture(sdlRenderer, "Untitled.bmp");
-	pTestSprite_ = new Sprite(texture, b2Vec2((float)0, (float)0));
+	SDL_Texture* texture = IMG_LoadTexture(sdlRenderer, "Untitled.bmp"); // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	pTestSprite_ = new Sprite(texture, b2Vec2(500.0f, 670.0f), b2Vec2(100.0f, 100.0f), b2Vec2(500.0f, 250.0f)); // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
 
 void Game::Run()
@@ -86,7 +83,7 @@ void Game::clearBackBuffer()
 
 void Game::draw()
 {
-	pTestSprite_->Draw(sdlRenderer, b2Vec2(0.0f, 0.0f));
+	pTestSprite_->Draw(sdlRenderer, b2Vec2(0.0f, 0.0f)); // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
 
 void Game::handleEvent(const SDL_Event& newEvent)
