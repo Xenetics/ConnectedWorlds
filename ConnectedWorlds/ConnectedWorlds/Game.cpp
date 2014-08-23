@@ -47,7 +47,7 @@ void Game::InitSDL()
 void Game::InitTestImage()
 {
 
-	texture = IMG_LoadTexture(sdlRenderer, "untitled.bmp");
+	SDL_Texture* texture = IMG_LoadTexture(sdlRenderer, "Untitled.bmp");
 	pTestSprite_ = new Sprite(texture, b2Vec2((float)0, (float)0));
 }
 

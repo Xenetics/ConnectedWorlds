@@ -46,6 +46,9 @@
     <Library Include="..\..\..\..\..\..\..\SDL\boost_1_56_0\boost_1_56_0\bin.v2\libs\regex\build\msvc-12.0\debug\link-static\threading-multi\libboost_regex-vc120-mt-gd-1_56.lib">
       <Filter>Resource Files</Filter>
     </Library>
+    <Library Include="..\..\..\..\..\..\..\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\lib\x86\SDL2_image.lib">
+      <Filter>Resource Files</Filter>
+    </Library>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">

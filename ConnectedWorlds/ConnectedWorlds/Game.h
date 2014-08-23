@@ -13,8 +13,6 @@ protected:
 	SDL_Window *sdlWindow;
 	SDL_Renderer *sdlRenderer;
 
-	SDL_Texture* texture;
-
 	virtual void draw();
 	virtual void loadAssets() = 0;
 	virtual void update(float deltaTime) = 0;
