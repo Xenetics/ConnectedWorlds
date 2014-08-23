@@ -55,7 +55,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\include;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\SDL\boost_1_56_0\boost_1_56_0;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\include;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -90,6 +90,7 @@
     <None Include="SDL2_image.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Library Include="..\..\..\..\..\..\..\SDL\boost_1_56_0\boost_1_56_0\bin.v2\libs\regex\build\msvc-12.0\debug\link-static\threading-multi\libboost_regex-vc120-mt-gd-1_56.lib" />
     <Library Include="SDL2.lib" />
     <Library Include="SDL2main.lib" />
   </ItemGroup>

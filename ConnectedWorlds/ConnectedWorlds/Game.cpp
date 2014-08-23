@@ -1,4 +1,7 @@
 #include "Game.h"
+#include <boost/regex.hpp>
+#include <iostream>
+#include <string>
 
 #define DEFAULT_SCREEN_WIDTH 1280
 #define DEFAULT_SCREEN_HEIGHT 720
@@ -9,6 +12,19 @@
 
 Game::Game(void) : running_(true), screenWidth_(DEFAULT_SCREEN_WIDTH), screenHeight_(DEFAULT_SCREEN_HEIGHT)
 {
+	//example code for Boost can be and should deleted
+	std::string line;
+	boost::regex pat("^Subject: (Re: |Aw: )*(.*)");
+
+	while (std::cin)
+	{
+		std::getline(std::cin, line);
+		boost::smatch matches;
+		if (boost::regex_match(line, matches, pat))
+			std::cout << matches[2] << std::endl;
+	}
+
+
 }
 
 Game::~Game()
