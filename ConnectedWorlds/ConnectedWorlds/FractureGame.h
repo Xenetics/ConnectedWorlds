@@ -16,7 +16,4 @@ public:
 	FractureGame() : Game()
 	{
 	}
-	void BinCollisions(int tile);
-	void ItemCollisions();
-	void EnemyCollisions();
 };

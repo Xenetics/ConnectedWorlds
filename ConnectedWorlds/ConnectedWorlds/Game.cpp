@@ -77,10 +77,10 @@ void Game::handleEvent(const SDL_Event& newEvent)
 		running_ = false;
 		break;
 	case SDL_KEYDOWN:
-		onKeyDown(newEvent.key.keysym.sym);
+		onKeyDown(newEvent.key.keysym.scancode);
 		break;
 	case SDL_KEYUP:
-		onKeyUp(newEvent.key.keysym.sym);
+		onKeyUp(newEvent.key.keysym.scancode);
 		break;
 	}
 }
@@ -88,10 +88,6 @@ void Game::handleEvent(const SDL_Event& newEvent)
 
 void Game::onKeyDown(Uint16 key)
 {
-	if (key == SDLK_ESCAPE)
-	{
-		running_ = false;
-	}
 
 }
 
