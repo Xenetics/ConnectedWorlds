@@ -81,12 +81,12 @@ void Game::Run()
 
 void Game::clearBackBuffer()
 {
-	
+	SDL_RenderClear(sdlRenderer);
 }
 
 void Game::draw()
 {
-	pTestSprite_->Draw(sdlRenderer, b2Vec2((float)0, (float)0));
+	pTestSprite_->Draw(sdlRenderer, b2Vec2(0.0f, 0.0f));
 }
 
 void Game::handleEvent(const SDL_Event& newEvent)
