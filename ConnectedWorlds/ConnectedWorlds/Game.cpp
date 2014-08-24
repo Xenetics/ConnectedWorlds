@@ -24,8 +24,6 @@ Game::Game(void) : running_(true), screenWidth_(DEFAULT_SCREEN_WIDTH), screenHei
 		if (boost::regex_match(line, matches, pat))
 			std::cout << matches[2] << std::endl;
 	}
-
-
 }
 
 Game::~Game()
@@ -45,7 +43,7 @@ void Game::InitTestImage() // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 {
 
 	SDL_Texture* texture = IMG_LoadTexture(sdlRenderer, "Untitled.bmp"); // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	pTestSprite_ = new Sprite(texture, b2Vec2(500.0f, 670.0f), b2Vec2(100.0f, 100.0f), b2Vec2(500.0f, 250.0f)); // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	pTestSprite_ = new SpriteAnimation(texture, b2Vec2(500.0f, 670.0f), b2Vec2(100.0f, 100.0f), b2Vec2(6.0f, 1.0f), b2Vec2(6.0f, 1.0f), 60.0f, true); // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
 
 void Game::Run()
@@ -69,6 +67,8 @@ void Game::Run()
 		QueryPerformanceCounter(&currTime);
 		deltaTime = (float)(currTime.QuadPart - prevTime.QuadPart) / (float)frequency.QuadPart;
 		prevTime = currTime;
+
+		pTestSprite_->Update(deltaTime);
 
 		update(deltaTime);
 		clearBackBuffer();

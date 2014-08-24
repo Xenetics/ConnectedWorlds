@@ -5,7 +5,7 @@
 #include <DirectXMath.h>
 #include "SDL.h"
 #include "SDL_image.h"
-#include "Sprite.h"
+#include "SpriteAnimation.h"
 
 class Game
 {
@@ -32,7 +32,7 @@ private:
 	Uint32 clearColour_;
 
 	// For testing purposes
-	Sprite* pTestSprite_;
+	SpriteAnimation* pTestSprite_;
 	
 
 
