@@ -12,7 +12,7 @@ Sprite(image, pos, cellSize), frameRate_(frameRate), loop_(loop), playing_(true)
 	sheetSize_.x =  w / cellSize.x;  
 	sheetSize_.y = h / cellSize.y;
 
-	
+	frameRate_ = 1 / frameRate_;
 	updateSrcRect();
 }
 
