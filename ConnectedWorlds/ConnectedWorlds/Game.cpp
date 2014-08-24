@@ -1,4 +1,5 @@
 #include "Game.h"
+
 #include <boost/regex.hpp>
 #include <iostream>
 #include <string>
@@ -24,7 +25,13 @@ void Game::InitSDL()
 	sdlWindow = SDL_CreateWindow("Fractured Worlds", 100, 100, 1280, 720, 0);
 	sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED);
 	SDL_SetRenderDrawColor(sdlRenderer, 100, 0, 0, 255);
-	//LoadAssets();
+}
+
+void Game::InitGame()
+{
+	pSpriteSheet = IMG_LoadTexture(sdlRenderer, "Untitled.bmp");
+
+	world = new World(pSpriteSheet);
 }
 
 void Game::Run()
@@ -62,6 +69,9 @@ void Game::ClearBackBuffer()
 
 void Game::Draw()
 {
+	world->Draw(sdlRenderer, cameraPos);
+
+
 	SDL_RenderPresent(sdlRenderer);
 }
 

@@ -5,6 +5,7 @@
 #include <DirectXMath.h>
 #include "SDL.h"
 #include "SDL_image.h"
+#include "World.h"
 #include "SpriteAnimation.h"
 
 class Game
@@ -20,6 +21,8 @@ private:
 
 	bool running_;
 
+
+
 	Uint16 screenWidth_;
 	Uint16 screenHeight_;
 
@@ -32,6 +35,9 @@ private:
 	int colors[7][4];
 	int currentLevel;
 
+	World* world;
+	SDL_Texture* pSpriteSheet;
+	b2Vec2 cameraPos;
 public:
 	Game();
 	~Game();
@@ -39,5 +45,6 @@ public:
 	void InitSDL();
 	void Run();
 	void Clean();
+	void InitGame();
 };
 

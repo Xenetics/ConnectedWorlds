@@ -18,6 +18,8 @@ void Level::BuildLayers(int levelOrder[])
 				layers[0].layerGravity = 1;
 				//layers[0].layerTintCol = ;
 				layers[0].objects.push_back(new Object(pSpriteSheet_, b2Vec2(300.0f, 300.0f), b2Vec2(200.0f, 30.0f), b2Vec2(200.0f, 30.0)));
+				layers[0].objects.push_back(new Object(pSpriteSheet_, b2Vec2(300.0f, 400.0f), b2Vec2(200.0f, 30.0f), b2Vec2(200.0f, 30.0)));
+				layers[0].objects.push_back(new Object(pSpriteSheet_, b2Vec2(600.0f, 400.0f), b2Vec2(200.0f, 30.0f), b2Vec2(200.0f, 30.0)));
 			}
 			break;
 		case WATER:
@@ -50,7 +52,7 @@ void Level::BuildLevel01LayerNormal()
 
 void Level::Draw(SDL_Renderer* rend, b2Vec2 cameraPos)
 {
-	for (int i = 0; i < sizeof(layers[0].objects); i++)
+	for (int i = 0; i < layers[0].objects.size(); i++)
 	{
 		layers[0].objects[i]->Draw(rend, cameraPos);
 	}

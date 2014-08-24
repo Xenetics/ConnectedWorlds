@@ -2,6 +2,7 @@
 #include "SDL.h"
 
 
+
 void Sprite::Draw(SDL_Renderer* rend, const b2Vec2& cameraPos)
 {
 	//maybe we dont need this SDL_RLEACCEL 
@@ -27,6 +28,4 @@ void Sprite::Draw(SDL_Renderer* rend, const b2Vec2& cameraPos)
 	}
 
 	SDL_RenderCopy(rend, pImage_, destL, destR);
-
-	SDL_RenderPresent(rend);
 }
