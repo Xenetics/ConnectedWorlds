@@ -14,27 +14,16 @@ class FractureGame : public Game
 {
 private:
 	void loadAssets();
-	void init();
+	
 	void update(float deltaTime);
 	void draw();
 	void onKeyDown(Uint16 key);
 	void onKeyUp(Uint16 key);
 	void updateCamera();
-<<<<<<< HEAD
-	void init();	
-=======
-	
-
-
-	b2World world;
-	b2Vec2 gravity;
-
-	
-	
->>>>>>> origin/master
 
 public:
-	//enum levelNames{ NORMAL = 1, WATER, ICE, FIRE, SPACE, STORM, DESERT, FLIPPED };
+	void init();
+
 	FractureGame() : Game()
 	{
 		

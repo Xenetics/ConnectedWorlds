@@ -8,18 +8,16 @@
 void FractureGame::loadAssets()
 {
 
+	//new World(); //creates world with levels in order specified above
 }
 
 void FractureGame::init()
 {
 	InitSDL();
+	loadAssets();
 	Run();
 	Clean();
-	//psass on world of box 2d
 
-	//create new world example 
-	//int makeLevels[3] = { NORMAL, FIRE, ICE }; //make a temp array of size needed
-	//new World(makeLevels, world*); //creates world with levels in order specified above
 
 }
 

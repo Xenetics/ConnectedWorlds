@@ -1,17 +1,27 @@
 #pragma once
 
-#include "World.h"
+
 #include "Object.h"
+#include "Globals.h"
 
 #include <vector>
 
-class Level // : World
+class Level
 {
 public:
+	Level(){}
 	Level(int whichLevel, SDL_Texture* image) : levelIndex(whichLevel), pSpriteSheet_(image)
 	{
+		switch(levelIndex)
+		{
+		case 1:
+			int makeLayers[3] = { NORMAL, ICE, FIRE, };
+			BuildLayers(makeLayers);
+			break;
+		}
 	}
-	virtual ~Level();
+
+	~Level();
 	void Draw();
 	int currentLayer;
 
@@ -22,17 +32,14 @@ public:
 		bool isActive;
 		float layerGravity;
 		SDL_Color layerTintCol;
-		//or SDL_PixelFormat ??
 	};
 	Layer layers[7];
 
 private:
 	int levelIndex;
-	void BuildLayers(int levelIndex);
+	void BuildLayers(int levelOrder[]);
 
-	void Level01NormalLayer();
-	void Level01FireLayer();
-	void Level01IceLayer();
+	void BuildLevel01LayerNormal();
 
 	SDL_Texture* pSpriteSheet_;
 };
