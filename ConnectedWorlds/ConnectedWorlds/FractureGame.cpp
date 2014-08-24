@@ -12,6 +12,9 @@ void FractureGame::loadAssets()
 
 void FractureGame::init()
 {
+	InitSDL();
+	Run();
+	Clean();
 	//psass on world of box 2d
 
 	//create new world example 
