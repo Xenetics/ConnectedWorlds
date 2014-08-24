@@ -19,7 +19,10 @@ public:
 		int elementType;
 		bool isActive;
 		float layerGravity;
+		SDL_Color layerTintCol;
+		//or SDL_PixelFormat ??
 	};
+	Layer layers[7];
 
 private:
 	int levelIndex;
