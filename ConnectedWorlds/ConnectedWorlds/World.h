@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Sprite.h"
+#include <Box2D/Box2D.h>
 
 
 class World : public Sprite
@@ -14,11 +15,6 @@ public:
 	int GetHeight();
 	void ChangeBackground(bool isForward); //used to move forward or backward through dimensions.
 
-	struct Camera
-	{
-		float xPos = 0;
-		float yPos = 0;
-	};
 	void Draw(b2Vec2 cameraPos);
 
 private:

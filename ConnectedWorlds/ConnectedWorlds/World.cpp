@@ -2,8 +2,10 @@
 #include "FractureGame.h"
 #include "Globals.h"
 
-World::World(int levelOrder[])
+World::World(int levelOrder[], b2World* world) : pWorld_(0)
 {
+	pWorld_ = world;
+
 	InitLevels(levelOrder);
 }
 

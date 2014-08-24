@@ -2,9 +2,22 @@
 #include <stdlib.h>
 #include <ctime>
 #include <iostream>
+#include <Box2D/Box2D.h>
 
 void FractureGame::loadAssets()
 {
+
+
+
+}
+
+void FractureGame::init()
+{
+	//psass on world of box 2d
+
+	//create new world example 
+	//int makeLevels[3] = { NORMAL, FIRE, ICE }; //make a temp array of size needed
+	//new World(makeLevels, world*); //creates world with levels in order specified above
 
 }
 
