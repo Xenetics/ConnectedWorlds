@@ -1,5 +1,6 @@
 #include "World.h"
 #include "FractureGame.h"
+#include "Globals.h"
 
 World::World(int levelOrder[])
 {
@@ -32,22 +33,22 @@ void World::InitLevels(int levelOrder[])
 	{
 		switch (levelOrder[i])
 		{
-		case FractureGame::NORMAL:
+		case Globals::NORMAL:
 			//levelSurface[i] = IMG_Load(".png");
 			break;
-		case FractureGame::WATER:
+		case Globals::WATER:
 			break;
-		case FractureGame::ICE:
+		case Globals::ICE:
 			break;
-		case FractureGame::FIRE:
+		case Globals::FIRE:
 			break;
-		case FractureGame::SPACE:
+		case Globals::SPACE:
 			break;
-		case FractureGame::STORM:
+		case Globals::STORM:
 			break;
-		case FractureGame::DESERT:
+		case Globals::DESERT:
 			break;
-		case FractureGame::FLIPPED:
+		case Globals::FLIPPED:
 
 		default:
 			break;

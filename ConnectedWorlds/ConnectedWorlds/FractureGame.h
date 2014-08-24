@@ -18,7 +18,7 @@ private:
 	
 
 public:
-	enum levelNames{ NORMAL = 1, WATER, ICE, FIRE, SPACE, STORM, DESERT, FLIPPED };
+	//enum levelNames{ NORMAL = 1, WATER, ICE, FIRE, SPACE, STORM, DESERT, FLIPPED };
 	FractureGame() : Game()
 	{
 		//create new world example 

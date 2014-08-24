@@ -19,8 +19,9 @@ public:
 		float xPos = 0;
 		float yPos = 0;
 	};
+	void Draw(b2Vec2 cameraPos);
 
 private:
-	SDL_Surface* levelSurface[7];
+	//SDL_Surface* levelSurface[7];
 	void InitLevels(int amount[]);
 };
