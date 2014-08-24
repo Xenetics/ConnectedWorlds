@@ -7,9 +7,6 @@ int main(int argc, char *argv[])
 {
 
 	Game* game = new FractureGame();
-	game->InitSDL();
-	game->Run();
-	game->Clean();
 
 	SDL_Quit();
 	return 0;

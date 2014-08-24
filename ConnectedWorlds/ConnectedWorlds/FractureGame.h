@@ -13,12 +13,13 @@ class FractureGame : public Game
 {
 private:
 	void loadAssets();
+	void init();
 	void update(float deltaTime);
 	void draw();
 	void onKeyDown(Uint16 key);
 	void onKeyUp(Uint16 key);
 	void updateCamera();
-	void init();
+	
 
 
 	b2World world;
