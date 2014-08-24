@@ -1,10 +1,13 @@
 #pragma once
 #include "Box2D/Box2D.h"
+#include "SDL_image.h"
+#include "SDL.h"
 
 enum levelNames{ NORMAL = 1, WATER, ICE, FIRE, SPACE, STORM, DESERT, FLIPPED };
 
 const b2Vec2 GRAVITY(0.0f, 0.2f);
 
+ /*
 #define ZERO 0.000001f
 
 b2Vec2 RectToRectCollision(const b2Vec2& r1Pos, float r1W, float r1H, const b2Vec2 r2Pos, float r2W, float r2H)
@@ -53,3 +56,4 @@ b2Vec2 RectToRectCollision(const b2Vec2& r1Pos, float r1W, float r1H, const b2Ve
 		return retVal;
 	}
 }
+*/

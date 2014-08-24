@@ -1,13 +1,12 @@
 #include "FractureGame.h"
+
 #include <stdlib.h>
 #include <ctime>
 #include <iostream>
-#include <Box2D/Box2D.h>
+//#include <Box2D/Box2D.h>
 
 void FractureGame::loadAssets()
 {
-
-
 
 }
 

@@ -3,6 +3,7 @@
 #include "Game.h"
 #include "World.h"
 #include "Box2D/Box2D.h"
+#include "Globals.h"
 
 #define GRAVITY_X = 0.0f
 #define GRAVITY_Y = -10.0f
@@ -18,18 +19,11 @@ private:
 	void onKeyDown(Uint16 key);
 	void onKeyUp(Uint16 key);
 	void updateCamera();
-	void init();
-
-
-	b2World world;
-	b2Vec2 gravity;
-
-	
-	
+	void init();	
 
 public:
 	//enum levelNames{ NORMAL = 1, WATER, ICE, FIRE, SPACE, STORM, DESERT, FLIPPED };
-	FractureGame() : Game(), gravity(), world(gravity)
+	FractureGame() : Game()
 	{
 		
 	}
