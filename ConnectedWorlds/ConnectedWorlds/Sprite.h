@@ -14,9 +14,9 @@ protected:
 	SDL_Rect* destR;
 	SDL_Rect* destL;
 
-	b2Vec2 pos_;
-	b2Vec2 ssPos_;
-	b2Vec2 spriteSize_;
+	b2Vec2 pos_; // position in world
+	b2Vec2 ssPos_; // possition of sprite sheet
+	b2Vec2 spriteSize_; // size of prite 
 public:
 	Sprite() : pImage_(0)
 	{}
