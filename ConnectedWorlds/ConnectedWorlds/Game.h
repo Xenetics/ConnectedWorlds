@@ -31,17 +31,11 @@ private:
 
 	Uint32 clearColour_;
 
-	// For testing purposes
-	SpriteAnimation* pTestSprite_;
-	
-
-
 public:
 	Game(void);
 	~Game(void);
 
 	void InitSDL();
-	void InitTestImage();
 	void Run();
 	void Clean();
 };

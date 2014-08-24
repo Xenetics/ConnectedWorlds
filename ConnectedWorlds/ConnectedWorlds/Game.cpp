@@ -11,7 +11,7 @@
 #define CLEAR_COLOUR_G 0
 #define CLEAR_COLOUR_B 0
 
-Game::Game(void) : running_(true), screenWidth_(DEFAULT_SCREEN_WIDTH), screenHeight_(DEFAULT_SCREEN_HEIGHT), pTestSprite_(0)
+Game::Game(void) : running_(true), screenWidth_(DEFAULT_SCREEN_WIDTH), screenHeight_(DEFAULT_SCREEN_HEIGHT)
 {
 	//example code for Boost can be and should deleted
 	std::string line;
@@ -39,12 +39,6 @@ void Game::InitSDL()
 	loadAssets();
 }
 
-void Game::InitTestImage() // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-{
-	SDL_Texture* texture = IMG_LoadTexture(sdlRenderer, "Untitled.bmp"); // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	pTestSprite_ = new SpriteAnimation(texture, b2Vec2(500.0f, 670.0f), b2Vec2(100.0f, 100.0f), b2Vec2(6.0f, 1.0f), b2Vec2(6.0f, 1.0f), 1.0f, true); // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-}
-
 void Game::Run()
 {
 	//creat some variable used for determining elapsed time
@@ -67,9 +61,6 @@ void Game::Run()
 		deltaTime = (float)(currTime.QuadPart - prevTime.QuadPart) / (float)frequency.QuadPart;
 		prevTime = currTime;
 
-		SDL_Log("%f", deltaTime);
-		pTestSprite_->Update(deltaTime);
-
 		update(deltaTime);
 		clearBackBuffer();
 		draw();
@@ -83,7 +74,7 @@ void Game::clearBackBuffer()
 
 void Game::draw()
 {
-	pTestSprite_->Draw(sdlRenderer, b2Vec2(0.0f, 0.0f)); // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
 }
 
 void Game::handleEvent(const SDL_Event& newEvent)
