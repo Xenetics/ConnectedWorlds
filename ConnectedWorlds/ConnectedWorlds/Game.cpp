@@ -43,7 +43,7 @@ void Game::InitTestImage() // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 {
 
 	SDL_Texture* texture = IMG_LoadTexture(sdlRenderer, "Untitled.bmp"); // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-	pTestSprite_ = new SpriteAnimation(texture, b2Vec2(500.0f, 670.0f), b2Vec2(100.0f, 100.0f), b2Vec2(6.0f, 1.0f), b2Vec2(6.0f, 1.0f), 60.0f, true); // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+	pTestSprite_ = new SpriteAnimation(texture, b2Vec2(500.0f, 670.0f), b2Vec2(100.0f, 100.0f), b2Vec2(6.0f, 1.0f), b2Vec2(6.0f, 1.0f), 0.6f, true); // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
 
 void Game::Run()
@@ -68,6 +68,7 @@ void Game::Run()
 		deltaTime = (float)(currTime.QuadPart - prevTime.QuadPart) / (float)frequency.QuadPart;
 		prevTime = currTime;
 
+		SDL_Log("%f", deltaTime);
 		pTestSprite_->Update(deltaTime);
 
 		update(deltaTime);

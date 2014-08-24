@@ -37,22 +37,7 @@ void SpriteAnimation::Draw(SDL_Renderer* rend, const b2Vec2& cameraPos)
 	destR->w = spriteSize_.x;
 	destR->h = spriteSize_.y;
 
-	if (ssPos_ == b2Vec2(0.0f, 0.0f))
-	{
-		destL->w = spriteSize_.x;
-		destL->h = spriteSize_.y;
-		destL->x = ssPos_.x;
-		destL->y = ssPos_.y;
-	}
-	else
-	{
-		destL->w = spriteSize_.x;
-		destL->h = spriteSize_.y;
-		destL->x = ssPos_.x;
-		destL->y = ssPos_.y;
-	}
-
-	SDL_RenderCopy(rend, pImage_, destL, destR);
+	SDL_RenderCopy(rend, pImage_, &srcRect_, destR);
 
 	SDL_RenderPresent(rend);
 }
@@ -70,6 +55,7 @@ void SpriteAnimation::updateCurrFrame(float deltaTime)
 	if (playing_)
 	{
 		frameTimer_ += deltaTime;
+		SDL_Log("%f", frameTimer_);
 		if (frameTimer_ > frameRate_)
 		{
 			frameTimer_ = frameTimer_ - frameRate_;
