@@ -2,10 +2,8 @@
 #include "FractureGame.h"
 #include "Globals.h"
 
-World::World(int levelOrder[], b2World* world) : pWorld_(0)
+World::World(int levelOrder[])
 {
-	pWorld_ = world;
-
 	InitLevels(levelOrder);
 }
 
@@ -35,22 +33,22 @@ void World::InitLevels(int levelOrder[])
 	{
 		switch (levelOrder[i])
 		{
-		case Globals::NORMAL:
+		case NORMAL:
 			//levelSurface[i] = IMG_Load(".png");
 			break;
-		case Globals::WATER:
+		case WATER:
 			break;
-		case Globals::ICE:
+		case ICE:
 			break;
-		case Globals::FIRE:
+		case FIRE:
 			break;
-		case Globals::SPACE:
+		case SPACE:
 			break;
-		case Globals::STORM:
+		case STORM:
 			break;
-		case Globals::DESERT:
+		case DESERT:
 			break;
-		case Globals::FLIPPED:
+		case FLIPPED:
 
 		default:
 			break;
