@@ -13,11 +13,13 @@ public:
 	World(){}
 	World(SDL_Texture* image) : pImage_(image)
 	{
-		levels->push_back(new Level(1, pImage_));
+		currentLevel = 0;
+		levels.push_back(new Level(1, pImage_));
 	}
 	virtual ~World();
-	void Draw(b2Vec2 cameraPos);
+	void Draw(SDL_Renderer* rend, b2Vec2 cameraPos);
 private:
-	std::vector<Level*>* levels;
+	std::vector<Level*> levels;
 	SDL_Texture* pImage_;
+	int currentLevel;
 };

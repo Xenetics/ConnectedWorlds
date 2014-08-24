@@ -48,5 +48,11 @@ void Level::BuildLevel01LayerNormal()
 
 
 
-
+void Level::Draw(SDL_Renderer* rend, b2Vec2 cameraPos)
+{
+	for (int i = 0; i < sizeof(layers[0].objects); i++)
+	{
+		layers[0].objects[i]->Draw(rend, cameraPos);
+	}
+}
 

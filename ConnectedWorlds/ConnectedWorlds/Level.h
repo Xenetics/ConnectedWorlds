@@ -22,8 +22,8 @@ public:
 	}
 
 	~Level();
-	void Draw();
-	int currentLayer;
+	void Draw(SDL_Renderer* rend, b2Vec2 cameraPos);
+	int currentLayer = 0;
 
 	struct Layer
 	{
