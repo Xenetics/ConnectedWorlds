@@ -21,11 +21,10 @@ Game::~Game()
 
 void Game::InitSDL()
 {
-
-	SDL_CreateWindowAndRenderer(1280, 720, SDL_WINDOW_SHOWN, &sdlWindow, &sdlRenderer);
-	SDL_SetRenderDrawColor(sdlRenderer, 0, 0, 0, 255);
-
-	loadAssets();
+	sdlWindow = SDL_CreateWindow("Fractured Worlds", 100, 100, 1280, 720, 0);
+	sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED);
+	SDL_SetRenderDrawColor(sdlRenderer, 100, 0, 0, 255);
+	//LoadAssets();
 }
 
 void Game::Run()
@@ -42,7 +41,7 @@ void Game::Run()
 	{
 		while (SDL_PollEvent(&newEvent))
 		{
-			handleEvent(newEvent);
+			HandleEvent(newEvent);
 		}
 
 		//get current time to calc delta time with
@@ -50,23 +49,23 @@ void Game::Run()
 		deltaTime = (float)(currTime.QuadPart - prevTime.QuadPart) / (float)frequency.QuadPart;
 		prevTime = currTime;
 
-		update(deltaTime);
-		clearBackBuffer();
-		draw();
+		Update(deltaTime);
+		ClearBackBuffer();
+		Draw();
 	}
 }
 
-void Game::clearBackBuffer()
+void Game::ClearBackBuffer()
 {
 	SDL_RenderClear(sdlRenderer);
 }
 
-void Game::draw()
+void Game::Draw()
 {
-
+	SDL_RenderPresent(sdlRenderer);
 }
 
-void Game::handleEvent(const SDL_Event& newEvent)
+void Game::HandleEvent(const SDL_Event& newEvent)
 {
 	switch (newEvent.type)
 	{
@@ -74,21 +73,28 @@ void Game::handleEvent(const SDL_Event& newEvent)
 		running_ = false;
 		break;
 	case SDL_KEYDOWN:
-		onKeyDown(newEvent.key.keysym.scancode);
+		OnKeyDown(newEvent.key.keysym.scancode);
 		break;
 	case SDL_KEYUP:
-		onKeyUp(newEvent.key.keysym.scancode);
+		OnKeyUp(newEvent.key.keysym.scancode);
 		break;
 	}
 }
 
 
-void Game::onKeyDown(Uint16 key)
+void Game::OnKeyDown(Uint16 key)
 {
-
+	if (key == SDL_SCANCODE_SPACE)
+	{
+		currentLevel++;
+		if (currentLevel > 6)
+		{
+			currentLevel = 0;
+		}
+	}
 }
 
-void Game::onKeyUp(Uint16 key)
+void Game::OnKeyUp(Uint16 key)
 {
 
 }
@@ -96,4 +102,9 @@ void Game::onKeyUp(Uint16 key)
 void Game::Clean()
 {
 	SDL_Quit();
+}
+
+void Game::Update(float deltaTime)
+{
+
 }

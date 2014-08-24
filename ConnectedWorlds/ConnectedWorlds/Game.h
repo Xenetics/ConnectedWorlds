@@ -9,31 +9,32 @@
 
 class Game
 {
-protected:
+private:
 	SDL_Window *sdlWindow;
 	SDL_Renderer *sdlRenderer;
+	SDL_Texture *image;
 
-	virtual void draw();
-	virtual void loadAssets() = 0;
-	virtual void update(float deltaTime) = 0;
+	void Draw();
+	void LoadAssets();
+	void Update(float deltaTime);
 
 	bool running_;
 
 	Uint16 screenWidth_;
 	Uint16 screenHeight_;
 
-private:
-	void clearBackBuffer();
-	void handleEvent(const SDL_Event& newEvent);
+	void ClearBackBuffer();
+	void HandleEvent(const SDL_Event& newEvent);
 
-	virtual void onKeyDown(Uint16 key);
-	virtual void onKeyUp(Uint16 key);
+	void OnKeyDown(Uint16 key);
+	void OnKeyUp(Uint16 key);
 
-	Uint32 clearColour_;
+	int colors[7][4];
+	int currentLevel;
 
 public:
-	Game(void);
-	~Game(void);
+	Game();
+	~Game();
 
 	void InitSDL();
 	void Run();

@@ -1,13 +1,15 @@
 #include <stdlib.h>
 #include <time.h>
 #include "SDL.h"
-#include "FractureGame.h"
+#include "Game.h"
 
 int main(int argc, char *argv[])
 {
 
-	FractureGame* game = new FractureGame();
-	game->init();
+	Game* game = new Game();
+	game->InitSDL();
+	game->Run();
+	game->Clean();
 	SDL_Quit();
 	return 0;
 }
