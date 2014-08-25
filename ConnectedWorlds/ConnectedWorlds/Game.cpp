@@ -1,9 +1,7 @@
 #include "Game.h"
 
-#include <boost/regex.hpp>
 #include <iostream>
 #include <string>
-#include <Box2D/Box2D.h>
 
 #define DEFAULT_SCREEN_WIDTH 1280
 #define DEFAULT_SCREEN_HEIGHT 720
@@ -35,7 +33,8 @@ void Game::InitGame()
 	pSpriteSheet = IMG_LoadTexture(sdlRenderer, "tilesheet.png");
 
 	world = new World(pSpriteSheet);
-	player = new Player(playerSpriteSheet,Vec2(300.0f, 555.0f),Vec2(60.0f, 100.0f),Vec2(3.0f,0.0f),Vec2(360.0f,200.0f),7,true);
+	player = new Player(playerSpriteSheet,Vec2(300.0f, 555.0f),Vec2(60.0f, 100.0f),Vec2(3.0f,12.0f),Vec2(360.0f,200.0f),7,true);
+
 }
 
 void Game::Run()
@@ -101,8 +100,21 @@ void Game::OnKeyDown(Uint16 key)
 {
 	switch (key)
 	{
+	case SDL_SCANCODE_UP:
+		//scroll to next dimenion up
+		break;
+	case SDL_SCANCODE_DOWN:
+		//scroll to next dimention down
+		break;
 	case SDL_SCANCODE_ESCAPE:
 		running_ = false;
+		break;
+	case SDL_SCANCODE_R:
+		delete world;
+		delete player;
+//TODO change this to function that resets all object switches, and player pos, and camera.
+		world = new World(pSpriteSheet);
+		player = new Player(playerSpriteSheet, Vec2(300.0f, 555.0f), Vec2(60.0f, 100.0f), Vec2(3.0f, 12.0f), Vec2(360.0f, 200.0f), 7, true);
 		break;
 	}
 	player->OnKeyDown(key);

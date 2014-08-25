@@ -3,8 +3,6 @@
 #include "SDL.h"
 #include "SDL_image.h"
 #include "MathUtils.h"
-#include <Box2D/Box2D.h>
-#include <Box2D/Common/B2Math.h>
 #include <string>
 
 class Sprite
@@ -26,7 +24,7 @@ public:
 		destR = new SDL_Rect();
 		destL = new SDL_Rect();
 	}
-	virtual void Draw(SDL_Renderer* rend, const Vec2& cameraPosz, float scale);
+	void Draw(SDL_Renderer* rend, const Vec2& cameraPosz, Vec2 scale = Vec2(1.0f, 1.0f), int r = 255, int g = 255, int b = 255, int a = 255);
 
 	virtual ~Sprite()
 	{

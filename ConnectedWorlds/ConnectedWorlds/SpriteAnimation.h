@@ -43,7 +43,7 @@ protected:
 	void setCurrAnim(std::string animation);
 
 public:
-	SpriteAnimation() : Sprite(), frameRate_(0), loop_(0), playing_(false), currFrame_(0), frameTimer_(0), cellSize_(Vec2(0.0f, 0.0f)), sheetSize_(Vec2(0.0f, 0.0f)), frames_xy_(Vec2(0.0f, 0.0f))
+	SpriteAnimation() : Sprite(), frameRate_(0), loop_(0), playing_(true), currFrame_(0), frameTimer_(0), cellSize_(Vec2(0.0f, 0.0f)), sheetSize_(Vec2(0.0f, 0.0f)), frames_xy_(Vec2(0.0f, 0.0f))
 	{
 	}
 														
