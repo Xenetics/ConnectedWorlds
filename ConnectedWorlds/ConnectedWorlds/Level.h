@@ -35,6 +35,15 @@ public:
 	};
 	Layer layers[7];
 
+	float GetWidth()
+	{
+		float length1, length2;
+		int temp = layers[currentLayer].objects.size();
+		length1 = layers[currentLayer].objects[temp]->getSize().x * 0.5;
+
+		length2 = layers[currentLayer].objects[temp]->getPos().x;
+		return length1 + length2;
+	}
 private:
 	int levelIndex;
 	void BuildLayers(int levelOrder[]);

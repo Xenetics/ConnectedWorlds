@@ -46,31 +46,31 @@ void Level::Draw(SDL_Renderer* rend, Vec2 cameraPos)
 {
 	for (int i = 0; i < layers[6].objects.size(); i++)
 	{
-		layers[6].objects[i]->Draw(rend, cameraPos, 0.9f * 0.8f * 0.7f * 0.6f * 0.5f * 0.4f);
+		layers[6].objects[i]->Draw(rend, cameraPos);
 	}
 	for (int i = 0; i < layers[5].objects.size(); i++)
 	{
-		layers[5].objects[i]->Draw(rend, cameraPos, 0.9f * 0.8f * 0.7f * 0.6f * 0.5f);
+		layers[5].objects[i]->Draw(rend, cameraPos, Vec2(0.92f, 0.80f), 64, 128, 128, 204);
 	}
 	for (int i = 0; i < layers[4].objects.size(); i++)
 	{
-		layers[4].objects[i]->Draw(rend, cameraPos, 0.9f * 0.8f * 0.7f * 0.6f);
+		layers[4].objects[i]->Draw(rend, cameraPos, Vec2(0.846f, 0.64f), 0, 128, 255, 163);
 	}
 	for (int i = 0; i < layers[3].objects.size(); i++)
 	{
-		layers[3].objects[i]->Draw(rend, cameraPos, 0.9f * 0.8f * 0.7f);
+		layers[3].objects[i]->Draw(rend, cameraPos, Vec2(0.779f, 0.512f), 255, 128, 0, 130);
 	}
 	for (int i = 0; i < layers[2].objects.size(); i++)
 	{
-		layers[2].objects[i]->Draw(rend, cameraPos, 0.9f * 0.8f);
+		layers[2].objects[i]->Draw(rend, cameraPos, Vec2(0.716f, 0.4096f), 200, 200, 200, 104);
 	}
 	for (int i = 0; i < layers[1].objects.size(); i++)
 	{
-		layers[1].objects[i]->Draw(rend, cameraPos, 0.9f);
+		layers[1].objects[i]->Draw(rend, cameraPos, Vec2(0.659f, 0.32768f), 128, 0, 128, 83);
 	}
 	for (int i = 0; i < layers[0].objects.size(); i++)
 	{
-		layers[0].objects[i]->Draw(rend, cameraPos, 1.0f);
+		layers[0].objects[i]->Draw(rend, cameraPos, Vec2(0.606f, 0.262144f), 128, 64, 0, 67);
 	}
 }
 

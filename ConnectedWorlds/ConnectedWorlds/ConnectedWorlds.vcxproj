@@ -55,7 +55,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\SDL\Box2D_v2.3.0\Box2D_v2.3.0\Box2D;C:\SDL\boost_1_56_0\boost_1_56_0;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\include;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\SDL\Box2D_v2.3.0\Box2D_v2.3.0\Box2D;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\include;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -82,6 +82,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
@@ -98,12 +99,12 @@
     <None Include="SDL2_image.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\..\..\..\..\..\SDL\boost_1_56_0\boost_1_56_0\bin.v2\libs\regex\build\msvc-12.0\debug\link-static\threading-multi\libboost_regex-vc120-mt-gd-1_56.lib" />
     <Library Include="..\..\..\..\..\..\..\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\lib\x86\SDL2_image.lib" />
     <Library Include="SDL2.lib" />
     <Library Include="SDL2main.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Level.h" />
