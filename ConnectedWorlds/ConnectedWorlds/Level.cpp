@@ -16,7 +16,10 @@ void Level::BuildLayers(int levelOrder[])
 			layers[0].isActive = true;
 			layers[0].layerGravity = 1;
 			//layers[0].layerTintCol = ;
-			layers[0].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));
+			layers[0].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));//test thing
+
+			//the level
+			layers[0].objects.push_back(new Object(pSpriteSheet_, Vec2(400.0f, 650.0f), Vec2(800.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
 			break;		
 		case WATER:
 			layers[1].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));
