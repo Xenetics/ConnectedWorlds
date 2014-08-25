@@ -14,9 +14,9 @@ protected:
 		Uint16 numFrames;
 	};
 
-	Vec2 cellSize_; // x = cellHeight, y = cellWidth
-	// cellHeight // how tall each animation frame is
+	Vec2 cellSize_; // x = cellWidth, y = cellHeight
 	// cellWidth // how wide each animation frame is
+	// cellHeight // how tall each animation frame is
 
 	Vec2 frames_xy_; // x = numFrames, y = startFrame
 	// numFrames	// num of frames in animation
@@ -39,7 +39,7 @@ protected:
 	void updateSrcRect();
 	void updateCurrFrame(float deltaTime);
 
-	std::map<std::string, AnimationData> anims_;
+	//std::map<std::string, AnimationData> anims_;
 	void setCurrAnim(std::string animation);
 
 public:

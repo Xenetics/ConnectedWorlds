@@ -2,7 +2,7 @@
 
 																// these need to be b2Vec2's
 SpriteAnimation::SpriteAnimation(SDL_Texture* image, Vec2 pos, Vec2 cellSize, Vec2 frames_xy, Vec2 sheetSize, float frameRate, bool loop) :
-Sprite(image, pos, cellSize), frameRate_(frameRate), loop_(loop), playing_(true), currFrame_(0), frameTimer_(0.0f), cellSize_(cellSize), sheetSize_(sheetSize), frames_xy_(frames_xy)
+Sprite(image, pos, cellSize), frameRate_(frameRate), loop_(loop), playing_(false), currFrame_(0), frameTimer_(0.0f), cellSize_(cellSize), sheetSize_(sheetSize), frames_xy_(frames_xy)
 {
 	srcRect_ = SDL_Rect();
 	
@@ -22,13 +22,13 @@ void SpriteAnimation::Update(float deltaTime)
 	updateCurrFrame(deltaTime);
 }
 
-void SpriteAnimation::setCurrAnim(std::string animation)
+/*void SpriteAnimation::setCurrAnim(std::string animation)
 {
 	frameRate_ = anims_[animation].frameRate;
 	frames_xy_.y = anims_[animation].startFrame;
 	currFrame_ = frames_xy_.y;
 	frames_xy_.x = anims_[animation].numFrames;
-}
+}*/
 
 void SpriteAnimation::Draw(SDL_Renderer* rend, const Vec2& cameraPos) 
 {
@@ -44,8 +44,8 @@ void SpriteAnimation::Draw(SDL_Renderer* rend, const Vec2& cameraPos)
 
 void SpriteAnimation::updateSrcRect()
 {
-	srcRect_.x = (currFrame_ % (Uint16)sheetSize_.x) * cellSize_.y;
-	srcRect_.y = (currFrame_ / (Uint16)sheetSize_.x) * cellSize_.x;
+	srcRect_.x = (currFrame_ % (Uint16)sheetSize_.x) * cellSize_.x;
+	srcRect_.y = (currFrame_ / (Uint16)sheetSize_.x) * cellSize_.y;
 	srcRect_.w = cellSize_.x;
 	srcRect_.h = cellSize_.y;
 }

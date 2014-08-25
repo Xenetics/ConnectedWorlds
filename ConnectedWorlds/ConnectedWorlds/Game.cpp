@@ -35,7 +35,7 @@ void Game::InitGame()
 	pSpriteSheet = IMG_LoadTexture(sdlRenderer, "tilesheet.png");
 
 	world = new World(pSpriteSheet);
-	player = new Player(playerSpriteSheet,Vec2(50.0f, 50.0f),Vec2(100.0f, 60.0f),Vec2(6.0f,0.0f),Vec2(359.0f,198.0f),10,true);
+	player = new Player(playerSpriteSheet,Vec2(300.0f, 555.0f),Vec2(60.0f, 100.0f),Vec2(3.0f,0.0f),Vec2(360.0f,200.0f),7,true);
 }
 
 void Game::Run()
@@ -99,12 +99,18 @@ void Game::HandleEvent(const SDL_Event& newEvent)
 
 void Game::OnKeyDown(Uint16 key)
 {
+	switch (key)
+	{
+	case SDL_SCANCODE_ESCAPE:
+		running_ = false;
+		break;
+	}
 	player->OnKeyDown(key);
 }
 
 void Game::OnKeyUp(Uint16 key)
 {
-
+	player->OnKeyUp(key);
 }
 
 void Game::Clean()
