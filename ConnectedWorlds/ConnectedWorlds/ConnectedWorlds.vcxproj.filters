@@ -1,43 +1,126 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Level.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="MathUtils.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="SpriteAnimation.cpp" />
-    <ClCompile Include="World.cpp" />
-    <ClCompile Include="Collision.cpp" />
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MathUtils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteAnimation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Globals.h" />
-    <ClInclude Include="Level.h" />
-    <ClInclude Include="MathUtils.h" />
-    <ClInclude Include="Object.h" />
-    <ClInclude Include="Player.h" />
-    <ClInclude Include="Sprite.h" />
-    <ClInclude Include="SpriteAnimation.h" />
-    <ClInclude Include="World.h" />
-    <ClInclude Include="Collision.h" />
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MathUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteAnimation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\..\..\..\..\..\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\lib\x86\SDL2_image.lib" />
-    <Library Include="SDL2.lib" />
-    <Library Include="SDL2main.lib" />
+    <Library Include="SDL2.lib">
+      <Filter>Resources</Filter>
+    </Library>
+    <Library Include="..\..\..\..\..\..\..\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\lib\x86\SDL2_image.lib">
+      <Filter>Resources</Filter>
+    </Library>
+    <Library Include="SDL2main.lib">
+      <Filter>Resources</Filter>
+    </Library>
+    <Library Include="SDL2_mixer.lib">
+      <Filter>Resources</Filter>
+    </Library>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\..\Desktop\backgroundtest.png" />
-    <Image Include="..\..\..\..\..\Desktop\Untitled.bmp" />
-    <Image Include="player.png" />
-    <Image Include="tilesheet.png" />
+    <Image Include="..\..\..\..\..\Desktop\Untitled.bmp">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="..\..\..\..\..\Desktop\backgroundtest.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="player.png">
+      <Filter>Resources</Filter>
+    </Image>
+    <Image Include="tilesheet.png">
+      <Filter>Resources</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="libpng16-16.dll" />
-    <None Include="SDL2.dll" />
-    <None Include="SDL2_image.dll" />
+    <None Include="libpng16-16.dll">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="SDL2.dll">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="SDL2_image.dll">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="SDL2_mixer.dll">
+      <Filter>Resources</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{3689832d-95ed-4bb2-8815-091de3b0f9fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3e52a0dc-d028-484c-8a1c-90ce739dfda8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{d33463f1-9642-4035-a3d2-8d8a3cffb249}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

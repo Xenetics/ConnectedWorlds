@@ -41,9 +41,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <LibraryPath>C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\lib\x86;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\lib\x86;$(LibraryPath)</LibraryPath>
-    <ExecutablePath>C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3;$(ExecutablePath)</ExecutablePath>
-    <IncludePath>C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\SDL\SDL2_mixer-devel-2.0.0-VC\SDL2_mixer-2.0.0\lib\x86;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\lib\x86;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\lib\x86;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\SDL\SDL2_mixer-devel-2.0.0-VC\SDL2_mixer-2.0.0;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>C:\SDL\SDL2_mixer-devel-2.0.0-VC\SDL2_mixer-2.0.0;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -55,7 +55,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\SDL\Box2D_v2.3.0\Box2D_v2.3.0\Box2D;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\include;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\SDL\SDL2_mixer-devel-2.0.0-VC\SDL2_mixer-2.0.0\include;C:\SDL\Box2D_v2.3.0\Box2D_v2.3.0\Box2D;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\include;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -82,6 +82,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AudioController.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Level.cpp" />
@@ -97,13 +98,16 @@
     <None Include="libpng16-16.dll" />
     <None Include="SDL2.dll" />
     <None Include="SDL2_image.dll" />
+    <None Include="SDL2_mixer.dll" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="..\..\..\..\..\..\..\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\lib\x86\SDL2_image.lib" />
     <Library Include="SDL2.lib" />
     <Library Include="SDL2main.lib" />
+    <Library Include="SDL2_mixer.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioController.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Globals.h" />
