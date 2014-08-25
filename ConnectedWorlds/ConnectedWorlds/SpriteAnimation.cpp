@@ -55,7 +55,7 @@ void SpriteAnimation::updateCurrFrame(float deltaTime)
 	if (playing_)
 	{
 		frameTimer_ += deltaTime;
-		SDL_Log("%f", frameTimer_);
+		//SDL_Log("%f", frameTimer_);
 		if (frameTimer_ > frameRate_)
 		{
 			frameTimer_ = frameTimer_ - frameRate_;

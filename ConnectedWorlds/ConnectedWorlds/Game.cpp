@@ -1,7 +1,9 @@
 #include "Game.h"
+#include "Collision.h"
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 #define DEFAULT_SCREEN_WIDTH 1280
 #define DEFAULT_SCREEN_HEIGHT 720
@@ -33,7 +35,7 @@ void Game::InitGame()
 	pSpriteSheet = IMG_LoadTexture(sdlRenderer, "tilesheet.png");
 
 	world = new World(pSpriteSheet);
-	player = new Player(playerSpriteSheet,Vec2(300.0f, 555.0f),Vec2(60.0f, 100.0f),Vec2(3.0f,12.0f),Vec2(360.0f,200.0f),7,true);
+	player = new Player(playerSpriteSheet,Vec2(300.0f, 300.0f),Vec2(60.0f, 100.0f),Vec2(3.0f,12.0f),Vec2(360.0f,200.0f),7,true);
 
 }
 
@@ -133,8 +135,9 @@ void Game::Clean()
 void Game::Update(float deltaTime)
 {
 	player->Update(deltaTime);
-
 	updateCamera();
+
+	DoCollisions();
 }
 
 void Game::updateCamera()
@@ -150,40 +153,27 @@ void Game::updateCamera()
 }
 
 
-/*
-void Game::checkPlayerBounds()
+void Game::DoCollisions()
 {
-	if (pMainCharacter_->GetLeft() <
-		pCurrLevel_->getPos().x - (pCurrLevel_->GetWidth() / 2.0f))
+	std::vector<SDL_Rect*> colRects = world->GetCurLevel()->GetObjectRects();
+	SDL_Log("%f, %f, %f, %f", colRects[0]->x, colRects[0]->y, colRects[0]->w, colRects[0]->h);
+	Vec2 objPos = Vec2(colRects[0]->x, colRects[0]->y);
+	Vec2 playerPos  = player->getPos();
+	float playerW = player->getSize().x;
+	float playerH = player->getSize().y;
+	for (int i = 0; i < colRects.size(); i++)
 	{
-		pMainCharacter_->setPos(Vec2((pCurrLevel_->getPos().x -
-			(pCurrLevel_->GetWidth() / 2.0f)) +
-			pMainCharacter_->GetWidth() / 2.0f,
-			pMainCharacter_->getPos().y));
-	}
-	else if (pMainCharacter_->GetRight() >
-		pCurrLevel_->getPos().x + (pCurrLevel_->GetWidth() / 2.0f))
-	{
-		pMainCharacter_->setPos(Vec2((pCurrLevel_->getPos().x +
-			(pCurrLevel_->GetWidth() / 2.0f))
-			- pMainCharacter_->GetWidth() / 2.0f,
-			pMainCharacter_->getPos().y));
+		Vec2 temp;
+		Vec2 objPos = Vec2(colRects[i]->x, colRects[i]->y);
+		Vec2 ret = Collision::RectToRectCollision(playerPos, playerW, playerH, objPos, colRects[i]->w, colRects[i]->h);
+		if (VectorMath::Magnitude(&ret) > VectorMath::Magnitude(&temp))
+		{
+			temp = ret;
+			//handle collision here
+			player->setPos(player->getPos() + ret);
+		}	
 	}
 
-	if (pMainCharacter_->GetTop() <
-		pCurrLevel_->getPos().y - pCurrLevel_->GetHeight() / 2.0)
-	{
-		pMainCharacter_->setPos(Vec2(pMainCharacter_->getPos().x,
-			pCurrLevel_->getPos().y - pCurrLevel_->GetHeight()
-			/ 2.0f + pMainCharacter_->GetHeight() / 2.0f));
-	}
-	else if (pMainCharacter_->GetBottom() >
-		pCurrLevel_->getPos().y +
-		pCurrLevel_->GetHeight() / 2.0f)
-	{
-		pMainCharacter_->setPos(Vec2(pMainCharacter_->getPos().x,
-			pCurrLevel_->getPos().y +
-			pCurrLevel_->GetHeight() / 2.0f
-			- pMainCharacter_->GetHeight() / 2.0f));
-	}
-}*/
+
+	
+}

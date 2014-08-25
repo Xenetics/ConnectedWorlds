@@ -22,6 +22,17 @@ public:
 	{
 		return levels[currentLevel]->GetWidth();
 	}
+
+	std::vector<SDL_Rect*> GetObjectRects()
+	{
+		std::vector<SDL_Rect*> ret = levels[currentLevel]->GetObjectRects();
+		return ret;
+	}
+
+	Level* GetCurLevel()
+	{
+		return levels[currentLevel];
+	}
 private:
 	std::vector<Level*> levels;
 	SDL_Texture* pImage_;

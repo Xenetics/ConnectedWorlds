@@ -9,8 +9,8 @@ void Player::Update(float deltaTime)//make this affected by delta time
 {
 
 	// Calculate velocity based on pixels-per-frame
-	pos_.x += velocity.x;
-	pos_.y += velocity.y;
+	pos_.x += velocity.x * deltaTime;
+	pos_.y += velocity.y * deltaTime;
 
 	// Add acceleration to velocity
 	if (abs(velocity.x) < 100) {

@@ -41,6 +41,7 @@ private:
 	Vec2 cameraPos;
 
 	Player* player;
+
 public:
 	Game();
 	~Game();
@@ -49,5 +50,6 @@ public:
 	void Run();
 	void Clean();
 	void InitGame();
+	void DoCollisions();
 };
 
