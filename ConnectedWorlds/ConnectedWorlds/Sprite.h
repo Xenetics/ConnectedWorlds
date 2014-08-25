@@ -39,6 +39,11 @@ public:
 	{
 		return pos_;
 	}
+
+	Vec2 getSize()
+	{
+		return spriteSize_;
+	}
 	void setPos(Vec2 pos)
 	{
 		pos_ = pos;

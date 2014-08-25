@@ -23,6 +23,9 @@ private:
 
 	bool running_;
 
+	void Game::updateCamera();
+	void Game::checkPlayerBounds();
+
 	Uint16 screenWidth_;
 	Uint16 screenHeight_;
 

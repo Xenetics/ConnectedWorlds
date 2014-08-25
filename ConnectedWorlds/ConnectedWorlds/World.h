@@ -17,6 +17,11 @@ public:
 	}
 	virtual ~World();
 	void Draw(SDL_Renderer* rend, Vec2 cameraPos);
+
+	float getWidth()
+	{
+		return levels[currentLevel]->GetWidth();
+	}
 private:
 	std::vector<Level*> levels;
 	SDL_Texture* pImage_;
