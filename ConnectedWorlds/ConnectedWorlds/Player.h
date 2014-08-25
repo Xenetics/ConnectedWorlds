@@ -12,8 +12,11 @@ public:
 	~Player();
 
 	Vec2 velocity;
-	float playerSpeed = 150;
+	float playerSpeed = 200;
+	enum animNames{ ANIM_RUN_RIGHT, ANIM_RUN_LEFT, ANIM_JUMP_RIGHT, ANIM_JUMP_LEFT, ANIM_IDLE_RIGHT, ANIM_IDLE_LEFT };
+	animNames currentAnim = ANIM_IDLE_RIGHT;
 
+	void UpdateCurrAnimation();
 	virtual void Update(float deltaTime);
 	virtual void OnKeyDown(Uint16 key);
 	virtual void OnKeyUp(Uint16 key);

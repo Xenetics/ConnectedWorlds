@@ -68,6 +68,7 @@ public:
 	void SetStartFrame(Uint16 startFrame)
 	{
 		frames_xy_.y = startFrame;
+		currFrame_ = startFrame;
 	}
 
 	void SetNumFrames(Uint16 numFrames)
@@ -88,6 +89,11 @@ public:
 	Uint16 GetHeight()
 	{
 		return cellSize_.y;
+	}
+
+	void SetLoop(bool loop)
+	{
+		loop_ = loop;
 	}
 };
 

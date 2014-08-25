@@ -9,6 +9,7 @@ const Vec2 GRAVITY(0.0f, 0.2f);
  
 #define ZERO 0.000001f
 
+/*
 Vec2 RectToRectCollision(const Vec2& r1Pos, float r1W, float r1H, const Vec2 r2Pos, float r2W, float r2H)
 {
 	Vec2 retVal(0.0f, 0.0f);
@@ -52,4 +53,4 @@ Vec2 RectToRectCollision(const Vec2& r1Pos, float r1W, float r1H, const Vec2 r2P
 	{
 		return retVal;
 	}
-}
+}*/
