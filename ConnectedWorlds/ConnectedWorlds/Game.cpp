@@ -122,3 +122,66 @@ void Game::Update(float deltaTime)
 {
 	player->Update(deltaTime);
 }
+
+void Game::updateCamera()
+{
+	cameraPos = player->getPos();
+	cameraPos.x -= DEFAULT_SCREEN_WIDTH / 2.0f;
+	//cameraPos.y -= DEFAULT_SCREEN_WIDTH / 2.0f;
+
+	//now keep camera within level bounds
+	if (cameraPos.x < -world->getWidth() / 2.0f)
+	{
+		cameraPos.x = -world->getWidth() / 2.0f;
+	}
+	else if (cameraPos.x + DEFAULT_SCREEN_WIDTH >(world->getWidth() / 2.0f))
+	{
+		cameraPos.x = (world->getWidth() / 2.0f) - DEFAULT_SCREEN_WIDTH;
+	}
+	/*
+	if (cameraPos.y < -pCurrLevel_->GetHeight() / 2.0f)
+	{
+		cameraPos.y = -pCurrLevel_->GetHeight() / 2.0f;
+	}
+	else if (cameraPos.y + screenHeight_ >(pCurrLevel_->GetHeight() / 2.0f))
+	{
+		cameraPos.y = (pCurrLevel_->GetHeight() / 2.0f) - screenHeight_;
+	}*/
+}
+/*
+void Game::checkPlayerBounds()
+{
+	if (pMainCharacter_->GetLeft() <
+		pCurrLevel_->getPos().x - (pCurrLevel_->GetWidth() / 2.0f))
+	{
+		pMainCharacter_->setPos(Vec2((pCurrLevel_->getPos().x -
+			(pCurrLevel_->GetWidth() / 2.0f)) +
+			pMainCharacter_->GetWidth() / 2.0f,
+			pMainCharacter_->getPos().y));
+	}
+	else if (pMainCharacter_->GetRight() >
+		pCurrLevel_->getPos().x + (pCurrLevel_->GetWidth() / 2.0f))
+	{
+		pMainCharacter_->setPos(Vec2((pCurrLevel_->getPos().x +
+			(pCurrLevel_->GetWidth() / 2.0f))
+			- pMainCharacter_->GetWidth() / 2.0f,
+			pMainCharacter_->getPos().y));
+	}
+
+	if (pMainCharacter_->GetTop() <
+		pCurrLevel_->getPos().y - pCurrLevel_->GetHeight() / 2.0)
+	{
+		pMainCharacter_->setPos(Vec2(pMainCharacter_->getPos().x,
+			pCurrLevel_->getPos().y - pCurrLevel_->GetHeight()
+			/ 2.0f + pMainCharacter_->GetHeight() / 2.0f));
+	}
+	else if (pMainCharacter_->GetBottom() >
+		pCurrLevel_->getPos().y +
+		pCurrLevel_->GetHeight() / 2.0f)
+	{
+		pMainCharacter_->setPos(Vec2(pMainCharacter_->getPos().x,
+			pCurrLevel_->getPos().y +
+			pCurrLevel_->GetHeight() / 2.0f
+			- pMainCharacter_->GetHeight() / 2.0f));
+	}
+}*/
