@@ -3,15 +3,13 @@
 
 Player::~Player()
 {
-
 }
 
 void Player::Update(float deltaTime)
 {
-	velocity = VectorMath::Normalize(&velocity);
+    velocity = VectorMath::Normalize(&velocity);
 	pos_ += velocity * playerSpeed * deltaTime;
 	SpriteAnimation::Update(deltaTime);
-	
 }
 
 void Player::OnKeyDown(Uint16 key)
@@ -25,6 +23,7 @@ void Player::OnKeyDown(Uint16 key)
 		velocity.x -= 1;
 		break;
 	case SDL_SCANCODE_SPACE:
+		velocity.y -= 1;
 		break;
 	}
 	if (!playing_)
@@ -45,6 +44,7 @@ void Player::OnKeyUp(Uint16 key)
 		velocity.x = 0;
 		break;
 	case SDL_SCANCODE_SPACE:
+		velocity.y = 0;
 		break;
 	}
 	if (!playing_)
@@ -69,7 +69,6 @@ void Player::UpdateCurrAnimation()
 	else if (velocity.x > 0 && currentAnim != ANIM_RUN_RIGHT)
 	{
 		currentAnim = ANIM_RUN_RIGHT;
-		SetLoop(false);
 		SetStartFrame(0);
 	}
 	else if (velocity.x < 0 && currentAnim != ANIM_RUN_LEFT)
