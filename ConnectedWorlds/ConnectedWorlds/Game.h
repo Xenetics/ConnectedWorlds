@@ -23,7 +23,7 @@ private:
 
 	bool running_;
 
-	void Game::updateCamera();
+	void Game::updateCamera(float deltaTime);
 	void Game::checkPlayerBounds();
 
 	Uint16 screenWidth_;

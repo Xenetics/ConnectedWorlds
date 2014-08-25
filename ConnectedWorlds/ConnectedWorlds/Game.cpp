@@ -136,19 +136,19 @@ void Game::Update(float deltaTime)
 {
 	player->Update(deltaTime);
 	DoCollisions();
-	updateCamera();
+	updateCamera(deltaTime);
 	
 }
 
-void Game::updateCamera()
+void Game::updateCamera(float deltaTime)
 {
 	//now keep camera within level bounds
 	if ((player->getPos().x + cameraPos.x) > DEFAULT_SCREEN_WIDTH * 0.8) {
-		cameraPos.x -= player->velocity.x;
+		cameraPos.x -= player->velocity.x * deltaTime;
 	}
 
 	if ((player->getPos().x + cameraPos.x) < DEFAULT_SCREEN_WIDTH * 0.2) {
-		cameraPos.x -= player->velocity.x;
+		cameraPos.x -= player->velocity.x * deltaTime;
 	}
 }
 
