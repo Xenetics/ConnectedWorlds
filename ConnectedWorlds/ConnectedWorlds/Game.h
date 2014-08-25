@@ -23,8 +23,6 @@ private:
 
 	bool running_;
 
-
-
 	Uint16 screenWidth_;
 	Uint16 screenHeight_;
 

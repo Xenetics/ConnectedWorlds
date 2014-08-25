@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Sprite.h"
-#include <Box2D/Box2D.h>
 #include "Level.h"
 #include <vector>
 
