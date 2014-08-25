@@ -50,6 +50,9 @@
     <None Include="SDL2_image.dll">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="libpng16-16.dll">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Library Include="SDL2.lib">
@@ -102,6 +105,7 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="player.png">
+    <Image Include="tilesheet.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

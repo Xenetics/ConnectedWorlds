@@ -4,14 +4,14 @@
 
 
 
-void Sprite::Draw(SDL_Renderer* rend, const Vec2& cameraPos)
+void Sprite::Draw(SDL_Renderer* rend, const Vec2& cameraPos, float scale)
 {
 	//maybe we dont need this SDL_RLEACCEL 
 	
-	destR->x = pos_.x - spriteSize_.x / 2;
-	destR->y = pos_.y - spriteSize_.y / 2;
-	destR->w = spriteSize_.x;
-	destR->h = spriteSize_.y;
+	destR->x = pos_.x + (1280 - 1280 * scale)/2;
+	destR->y = pos_.y;
+	destR->w = spriteSize_.x * scale;
+	destR->h = spriteSize_.y * scale;
 
 	if (ssPos_ == Vec2(0.0f, 0.0f))
 	{
@@ -27,6 +27,5 @@ void Sprite::Draw(SDL_Renderer* rend, const Vec2& cameraPos)
 		destL->x = ssPos_.x;
 		destL->y = ssPos_.y;
 	}
-
 	SDL_RenderCopy(rend, pImage_, destL, destR);
 }

@@ -34,9 +34,6 @@ private:
 	void OnKeyDown(Uint16 key);
 	void OnKeyUp(Uint16 key);
 
-	int colors[7][4];
-	int currentLevel;
-
 	World* world;
 	SDL_Texture* pSpriteSheet;
 	SDL_Texture* playerSpriteSheet;
