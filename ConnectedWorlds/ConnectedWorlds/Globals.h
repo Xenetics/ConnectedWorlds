@@ -2,8 +2,7 @@
 
 enum levelNames{ NORMAL = 0, WATER, ICE, FIRE, SPACE, STORM, DESERT, FLIPPED };
 
-<<<<<<< HEAD
-const Vec2 GRAVITY(0.0f, 0.2f);
+const Vec2 GRAVITY(0.0f, 0.8f);
 
  
 #define ZERO 0.000001f
@@ -53,6 +52,3 @@ Vec2 RectToRectCollision(const Vec2& r1Pos, float r1W, float r1H, const Vec2 r2P
 		return retVal;
 	}
 }*/
-=======
-const Vec2 GRAVITY(0.0f, 0.2f);
->>>>>>> origin/master
