@@ -35,7 +35,7 @@ void Game::InitGame()
 	pSpriteSheet = IMG_LoadTexture(sdlRenderer, "tilesheet.png");
 
 	world = new World(pSpriteSheet);
-	player = new Player(playerSpriteSheet,Vec2(300.0f, 300.0f),Vec2(60.0f, 100.0f),Vec2(3.0f,12.0f),Vec2(360.0f,200.0f),7,true);
+	player = new Player(playerSpriteSheet,Vec2(300.0f, 400.0f),Vec2(60.0f, 100.0f),Vec2(3.0f,12.0f),Vec2(360.0f,200.0f),7,true);
 
 }
 
@@ -134,11 +134,9 @@ void Game::Clean()
 
 void Game::Update(float deltaTime)
 {
-	DoCollisions();
-
 	player->Update(deltaTime);
+	DoCollisions();
 	updateCamera();
-
 	
 }
 
@@ -173,9 +171,12 @@ void Game::DoCollisions()
 			temp = ret;
 			//handle collision here
 			player->setPos(player->getPos() + ret);
-			if (ret.x < 0.0f)
+			if (ret.y < 0.0f)
 			{
-				//player is on ground
+				if (player->onGround = false)
+				{
+					player->onGround = true;
+				}
 			}
 		}	
 	}

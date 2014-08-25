@@ -2,7 +2,7 @@
 
 enum levelNames{ NORMAL = 0, WATER, ICE, FIRE, SPACE, STORM, DESERT, FLIPPED };
 
-const Vec2 GRAVITY(0.0f, 0.008f);
+const Vec2 GRAVITY(0.0f, 0.2f);
 
  
 #define ZERO 0.000001f
