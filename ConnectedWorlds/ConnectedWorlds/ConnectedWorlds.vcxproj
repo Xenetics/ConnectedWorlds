@@ -58,7 +58,7 @@
       <AdditionalIncludeDirectories>C:\SDL\Box2D_v2.3.0\Box2D_v2.3.0\Box2D;C:\SDL\boost_1_56_0\boost_1_56_0;C:\SDL\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\include;C:\SDL\SDL2-devel-2.0.3-VC\SDL2-2.0.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
@@ -91,6 +91,7 @@
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="libpng16-16.dll" />
     <None Include="SDL2.dll" />
     <None Include="SDL2_image.dll" />
   </ItemGroup>
@@ -112,6 +113,7 @@
   <ItemGroup>
     <Image Include="..\..\..\..\..\Desktop\backgroundtest.png" />
     <Image Include="..\..\..\..\..\Desktop\Untitled.bmp" />
+    <Image Include="tilesheet.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

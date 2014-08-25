@@ -3,7 +3,7 @@
 #include "SDL_image.h"
 #include "SDL.h"
 
-enum levelNames{ NORMAL = 1, WATER, ICE, FIRE, SPACE, STORM, DESERT, FLIPPED };
+enum levelNames{ NORMAL = 0, WATER, ICE, FIRE, SPACE, STORM, DESERT, FLIPPED };
 
 const b2Vec2 GRAVITY(0.0f, 0.2f);
 

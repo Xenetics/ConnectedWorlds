@@ -15,7 +15,7 @@ public:
 		switch(levelIndex)
 		{
 		case 1:
-			int makeLayers[3] = { NORMAL, ICE, FIRE, };
+			int makeLayers[7] = { NORMAL, WATER, ICE, FIRE, SPACE, STORM, DESERT };
 			BuildLayers(makeLayers);
 			break;
 		}
@@ -38,9 +38,6 @@ public:
 private:
 	int levelIndex;
 	void BuildLayers(int levelOrder[]);
-
-	void BuildLevel01LayerNormal();
-
 	SDL_Texture* pSpriteSheet_;
 };
 

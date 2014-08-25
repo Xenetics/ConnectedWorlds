@@ -24,13 +24,12 @@ void Game::InitSDL()
 {
 	sdlWindow = SDL_CreateWindow("Fractured Worlds", 100, 100, 1280, 720, 0);
 	sdlRenderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED);
-	SDL_SetRenderDrawColor(sdlRenderer, 100, 0, 0, 255);
+	SDL_SetRenderDrawColor(sdlRenderer, 255, 255, 255, 255);
 }
 
 void Game::InitGame()
 {
-	pSpriteSheet = IMG_LoadTexture(sdlRenderer, "Untitled.bmp");
-
+	pSpriteSheet = IMG_LoadTexture(sdlRenderer, "tilesheet.png");
 	world = new World(pSpriteSheet);
 }
 
@@ -94,14 +93,7 @@ void Game::HandleEvent(const SDL_Event& newEvent)
 
 void Game::OnKeyDown(Uint16 key)
 {
-	if (key == SDL_SCANCODE_SPACE)
-	{
-		currentLevel++;
-		if (currentLevel > 6)
-		{
-			currentLevel = 0;
-		}
-	}
+
 }
 
 void Game::OnKeyUp(Uint16 key)

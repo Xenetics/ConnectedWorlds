@@ -26,7 +26,7 @@ public:
 		destL = new SDL_Rect();
 	}
 
-	virtual void Draw(SDL_Renderer* rend, const b2Vec2& cameraPosz);
+	virtual void Draw(SDL_Renderer* rend, const b2Vec2& cameraPos, float scale);
 
 	virtual ~Sprite()
 	{
