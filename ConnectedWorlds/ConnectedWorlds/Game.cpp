@@ -134,10 +134,12 @@ void Game::Clean()
 
 void Game::Update(float deltaTime)
 {
+	DoCollisions();
+
 	player->Update(deltaTime);
 	updateCamera();
 
-	DoCollisions();
+	
 }
 
 void Game::updateCamera()
@@ -155,22 +157,26 @@ void Game::updateCamera()
 
 void Game::DoCollisions()
 {
-	std::vector<SDL_Rect*> colRects = world->GetCurLevel()->GetObjectRects();
-	SDL_Log("%f, %f, %f, %f", colRects[0]->x, colRects[0]->y, colRects[0]->w, colRects[0]->h);
-	Vec2 objPos = Vec2(colRects[0]->x, colRects[0]->y);
+	std::vector<SDL_Rect> colRects = world->GetCurLevel()->GetObjectRects();
+	//SDL_Log("%f, %f, %f, %f", colRects[0]->x, colRects[0]->y, colRects[0]->w, colRects[0]->h);
+	//Vec2 objPos = Vec2(colRects[0]->x, colRects[0]->y);
 	Vec2 playerPos  = player->getPos();
 	float playerW = player->getSize().x;
 	float playerH = player->getSize().y;
 	for (int i = 0; i < colRects.size(); i++)
 	{
 		Vec2 temp;
-		Vec2 objPos = Vec2(colRects[i]->x, colRects[i]->y);
-		Vec2 ret = Collision::RectToRectCollision(playerPos, playerW, playerH, objPos, colRects[i]->w, colRects[i]->h);
+		Vec2 objPos = Vec2(colRects[i].x + (colRects[i].w * 0.5), colRects[i].y + (colRects[i].h * 0.5));
+		Vec2 ret = Collision::RectToRectCollision(playerPos, playerW, playerH, objPos, colRects[i].w, colRects[i].h);
 		if (VectorMath::Magnitude(&ret) > VectorMath::Magnitude(&temp))
 		{
 			temp = ret;
 			//handle collision here
 			player->setPos(player->getPos() + ret);
+			if (ret.x < 0.0f)
+			{
+				//player is on ground
+			}
 		}	
 	}
 

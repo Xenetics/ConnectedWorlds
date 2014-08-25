@@ -22,12 +22,12 @@ public:
 	{
 		return levels[currentLevel]->GetWidth();
 	}
-
+	/*
 	std::vector<SDL_Rect*> GetObjectRects()
 	{
-		std::vector<SDL_Rect*> ret = levels[currentLevel]->GetObjectRects();
+		std::vector<SDL_Rect*> ret = levels[currentLevel].GetObjectRects();
 		return ret;
-	}
+	}*/
 
 	Level* GetCurLevel()
 	{

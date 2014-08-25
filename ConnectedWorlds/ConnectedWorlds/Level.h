@@ -45,15 +45,15 @@ public:
 		return length1 + length2;
 	}
 
-	std::vector<SDL_Rect*> GetObjectRects()
+	std::vector<SDL_Rect> GetObjectRects()
 	{
-		std::vector<SDL_Rect*> ret;
+		std::vector<SDL_Rect> ret;
 		for (int i = 0; i < layers[currentLayer].objects.size(); i++)
 		{
 			SDL_Rect temp = SDL_Rect(layers[currentLayer].objects[i]->colRect);
 			temp.x += layers[currentLayer].objects[i]->getPos().x;
 			temp.y += layers[currentLayer].objects[i]->getPos().y;
-			ret.push_back(&temp);
+			ret.push_back(temp);
 		}
 		return ret;
 	}
