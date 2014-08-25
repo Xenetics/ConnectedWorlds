@@ -6,7 +6,7 @@ void Sprite::Draw(SDL_Renderer* rend, const Vec2& cameraPos, Vec2 scale, int r, 
 	//maybe we dont need this SDL_RLEACCEL 
 	
 	destR->x = (pos_.x + cameraPos.x) + (1280 - 1280 * scale.x) / 2;
-	destR->y = pos_.y + cameraPos.y;
+	destR->y = (pos_.y + cameraPos.y) * scale.y;
 	destR->w = spriteSize_.x * scale.x;
 	destR->h = spriteSize_.y * scale.y;
 

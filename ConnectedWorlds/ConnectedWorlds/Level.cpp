@@ -16,25 +16,25 @@ void Level::BuildLayers(int levelOrder[])
 			layers[0].isActive = true;
 			layers[0].layerGravity = 1;
 			//layers[0].layerTintCol = ;
-			layers[0].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 0.0f), Vec2(1280.0f, 720.0f), Vec2(0.0f, 0.0f)));
+			layers[0].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));
 			break;		
 		case WATER:
-			layers[1].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 0.0f), Vec2(1280.0f, 720.0f), Vec2(0.0f, 0.0f)));
+			layers[1].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));
 			break;
 		case ICE:
-			layers[2].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 0.0f), Vec2(1280.0f, 720.0f), Vec2(0.0f, 0.0f)));
+			layers[2].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));
 			break;
 		case FIRE:
-			layers[3].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 0.0f), Vec2(1280.0f, 720.0f), Vec2(0.0f, 0.0f)));
+			layers[3].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));
 			break;
 		case SPACE:
-			layers[4].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 0.0f), Vec2(1280.0f, 720.0f), Vec2(0.0f, 0.0f)));
+			layers[4].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));
 			break;
 		case STORM:
-			layers[5].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 0.0f), Vec2(1280.0f, 720.0f), Vec2(0.0f, 0.0f)));
+			layers[5].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));
 			break;
 		case DESERT:
-			layers[6].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 0.0f), Vec2(1280.0f, 720.0f), Vec2(0.0f, 0.0f)));
+			layers[6].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));
 			break;
 		default:
 			break;
