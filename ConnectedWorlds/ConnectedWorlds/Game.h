@@ -7,6 +7,8 @@
 #include "SDL_image.h"
 #include "World.h"
 #include "SpriteAnimation.h"
+#include "Player.h"
+#include "MathUtils.h"
 
 class Game
 {
@@ -37,7 +39,10 @@ private:
 
 	World* world;
 	SDL_Texture* pSpriteSheet;
-	b2Vec2 cameraPos;
+	SDL_Texture* playerSpriteSheet;
+	Vec2 cameraPos;
+
+	Player* player;
 public:
 	Game();
 	~Game();

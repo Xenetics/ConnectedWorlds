@@ -14,15 +14,15 @@ protected:
 		Uint16 numFrames;
 	};
 
-	b2Vec2 cellSize_; // x = cellHeight, y = cellWidth
+	Vec2 cellSize_; // x = cellHeight, y = cellWidth
 	// cellHeight // how tall each animation frame is
 	// cellWidth // how wide each animation frame is
 
-	b2Vec2 frames_xy_; // x = numFrames, y = startFrame
+	Vec2 frames_xy_; // x = numFrames, y = startFrame
 	// numFrames	// num of frames in animation
 	// startFrame	// frame animation starts at
 
-	b2Vec2 sheetSize_; // x = framesWide, y = framesHigh
+	Vec2 sheetSize_; // x = framesWide, y = framesHigh
 	// framesWide // how many cells wide sheet is
 	// framesHigh // how many cells high sheet is
 
@@ -43,18 +43,15 @@ protected:
 	void setCurrAnim(std::string animation);
 
 public:
-	SpriteAnimation() : Sprite(), frameRate_(0), loop_(0), playing_(false), currFrame_(0), frameTimer_(0)
+	SpriteAnimation() : Sprite(), frameRate_(0), loop_(0), playing_(false), currFrame_(0), frameTimer_(0), cellSize_(Vec2(0.0f, 0.0f)), sheetSize_(Vec2(0.0f, 0.0f)), frames_xy_(Vec2(0.0f, 0.0f))
 	{
-		cellSize_.SetZero();
-		sheetSize_.SetZero();
-		frames_xy_.SetZero();
 	}
 														
-	SpriteAnimation(SDL_Texture* image, b2Vec2 pos, b2Vec2 cellSize, b2Vec2 frames_xy, b2Vec2 sheetSize, float frameRate, bool loop);
+	SpriteAnimation(SDL_Texture* image, Vec2 pos, Vec2 cellSize, Vec2 frames_xy, Vec2 sheetSize, float frameRate, bool loop);
 
 	virtual void Update(float deltaTime);
 
-	virtual void Draw(SDL_Renderer* rend, const b2Vec2& cameraPosz);
+	virtual void Draw(SDL_Renderer* rend, const Vec2& cameraPosz);
 
 	void Play(bool loop = false)
 	{

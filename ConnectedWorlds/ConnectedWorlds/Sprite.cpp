@@ -1,9 +1,10 @@
 #include "Sprite.h"
 #include "SDL.h"
+#include "MathUtils.h"
 
 
 
-void Sprite::Draw(SDL_Renderer* rend, const b2Vec2& cameraPos)
+void Sprite::Draw(SDL_Renderer* rend, const Vec2& cameraPos)
 {
 	//maybe we dont need this SDL_RLEACCEL 
 	
@@ -12,7 +13,7 @@ void Sprite::Draw(SDL_Renderer* rend, const b2Vec2& cameraPos)
 	destR->w = spriteSize_.x;
 	destR->h = spriteSize_.y;
 
-	if (ssPos_ == b2Vec2(0.0f, 0.0f))
+	if (ssPos_ == Vec2(0.0f, 0.0f))
 	{
 		destL->w = spriteSize_.x;
 		destL->h = spriteSize_.y;

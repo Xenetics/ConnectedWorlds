@@ -1,7 +1,7 @@
 #include "SpriteAnimation.h"
 
 																// these need to be b2Vec2's
-SpriteAnimation::SpriteAnimation(SDL_Texture* image, b2Vec2 pos, b2Vec2 cellSize, b2Vec2 frames_xy, b2Vec2 sheetSize, float frameRate, bool loop) :
+SpriteAnimation::SpriteAnimation(SDL_Texture* image, Vec2 pos, Vec2 cellSize, Vec2 frames_xy, Vec2 sheetSize, float frameRate, bool loop) :
 Sprite(image, pos, cellSize), frameRate_(frameRate), loop_(loop), playing_(true), currFrame_(0), frameTimer_(0.0f), cellSize_(cellSize), sheetSize_(sheetSize), frames_xy_(frames_xy)
 {
 	srcRect_ = SDL_Rect();
@@ -30,7 +30,7 @@ void SpriteAnimation::setCurrAnim(std::string animation)
 	frames_xy_.x = anims_[animation].numFrames;
 }
 
-void SpriteAnimation::Draw(SDL_Renderer* rend, const b2Vec2& cameraPos) 
+void SpriteAnimation::Draw(SDL_Renderer* rend, const Vec2& cameraPos) 
 {
 	destR->x = pos_.x - spriteSize_.x / 2;
 	destR->y = pos_.y - spriteSize_.y / 2;

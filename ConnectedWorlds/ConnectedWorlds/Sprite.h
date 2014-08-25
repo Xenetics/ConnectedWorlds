@@ -2,6 +2,7 @@
 
 #include "SDL.h"
 #include "SDL_image.h"
+#include "MathUtils.h"
 #include <Box2D/Box2D.h>
 #include <Box2D/Common/B2Math.h>
 #include <string>
@@ -14,19 +15,19 @@ protected:
 	SDL_Rect* destR;
 	SDL_Rect* destL;
 
-	b2Vec2 pos_; // position in world
-	b2Vec2 ssPos_; // possition of sprite sheet
-	b2Vec2 spriteSize_; // size of prite 
+	Vec2 pos_; // position in world
+	Vec2 ssPos_; // possition of sprite sheet
+	Vec2 spriteSize_; // size of prite 
 public:
 	Sprite() : pImage_(0)
 	{}
-	Sprite(SDL_Texture* image, b2Vec2 pos, b2Vec2 spriteSize, b2Vec2 ssPos = b2Vec2(0.0f, 0.0f)) : pImage_(image), pos_(pos), ssPos_(ssPos), spriteSize_(spriteSize)
+	Sprite(SDL_Texture* image, Vec2 pos, Vec2 spriteSize, Vec2 ssPos = Vec2(0.0f, 0.0f)) : pImage_(image), pos_(pos), ssPos_(ssPos), spriteSize_(spriteSize)
 	{
 		destR = new SDL_Rect();
 		destL = new SDL_Rect();
 	}
 
-	virtual void Draw(SDL_Renderer* rend, const b2Vec2& cameraPosz);
+	virtual void Draw(SDL_Renderer* rend, const Vec2& cameraPosz);
 
 	virtual ~Sprite()
 	{
@@ -37,11 +38,11 @@ public:
 	}
 
 	//accessors
-	b2Vec2 getPos()
+	Vec2 getPos()
 	{
 		return pos_;
 	}
-	void setPos(b2Vec2 pos)
+	void setPos(Vec2 pos)
 	{
 		pos_ = pos;
 	}

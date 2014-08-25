@@ -17,7 +17,7 @@ public:
 		levels.push_back(new Level(1, pImage_));
 	}
 	virtual ~World();
-	void Draw(SDL_Renderer* rend, b2Vec2 cameraPos);
+	void Draw(SDL_Renderer* rend, Vec2 cameraPos);
 private:
 	std::vector<Level*> levels;
 	SDL_Texture* pImage_;

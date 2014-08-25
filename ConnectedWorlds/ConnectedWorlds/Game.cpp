@@ -30,8 +30,10 @@ void Game::InitSDL()
 void Game::InitGame()
 {
 	pSpriteSheet = IMG_LoadTexture(sdlRenderer, "Untitled.bmp");
+	playerSpriteSheet = IMG_LoadTexture(sdlRenderer, "player.png");
 
 	world = new World(pSpriteSheet);
+	player = new Player(pSpriteSheet,Vec2(50.0f, 50.0f),Vec2(100.0f, 60.0f),Vec2(6.0f,0.0f),Vec2(359.0f,198.0f),10,true);
 }
 
 void Game::Run()
@@ -70,13 +72,14 @@ void Game::ClearBackBuffer()
 void Game::Draw()
 {
 	world->Draw(sdlRenderer, cameraPos);
-
+	player->Draw(sdlRenderer, cameraPos);
 
 	SDL_RenderPresent(sdlRenderer);
 }
 
 void Game::HandleEvent(const SDL_Event& newEvent)
 {
+	
 	switch (newEvent.type)
 	{
 	case SDL_QUIT:
@@ -94,6 +97,7 @@ void Game::HandleEvent(const SDL_Event& newEvent)
 
 void Game::OnKeyDown(Uint16 key)
 {
+	player->OnKeyDown(key);
 	if (key == SDL_SCANCODE_SPACE)
 	{
 		currentLevel++;
@@ -116,5 +120,5 @@ void Game::Clean()
 
 void Game::Update(float deltaTime)
 {
-
+	player->Update(deltaTime);
 }
