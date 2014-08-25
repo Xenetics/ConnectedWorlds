@@ -11,8 +11,8 @@ public:
 	}
 	~Player();
 
-	Vec2 velocity;
-	float playerSpeed = 200;
+	Vec2 velocity, acc;
+	float playerSpeed = 0.34f;
 	enum animNames{ ANIM_RUN_RIGHT, ANIM_RUN_LEFT, ANIM_JUMP_RIGHT, ANIM_JUMP_LEFT, ANIM_IDLE_RIGHT, ANIM_IDLE_LEFT };
 	animNames currentAnim = ANIM_IDLE_RIGHT;
 

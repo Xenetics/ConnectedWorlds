@@ -6,12 +6,26 @@ Player::~Player()
 
 }
 
-void Player::Update(float deltaTime)
+void Player::Update(float deltaTime)//make this affected by delta time
 {
-	velocity = VectorMath::Normalize(&velocity);
-	pos_ += velocity * playerSpeed * deltaTime;
+
+	// Calculate velocity based on pixels-per-frame
+	pos_.x += velocity.x;
+	pos_.y += velocity.y;
+
+	// Add acceleration to velocity
+	if (abs(velocity.x) < 100) {
+		velocity.x += acc.x;
+	};
+
+	if (abs(velocity.y) < 100) {
+		velocity.y += acc.y;
+	};
+
+
+	//velocity = VectorMath::Normalize(&velocity);
+	//pos_ += velocity * playerSpeed * deltaTime;
 	SpriteAnimation::Update(deltaTime);
-	
 }
 
 void Player::OnKeyDown(Uint16 key)
@@ -19,10 +33,10 @@ void Player::OnKeyDown(Uint16 key)
 	switch (key)
 	{
 	case SDL_SCANCODE_RIGHT:
-		velocity.x += 1;
+		velocity.x = 1 * playerSpeed;
 		break;
 	case SDL_SCANCODE_LEFT:
-		velocity.x -= 1;
+		velocity.x = 1 * -playerSpeed;
 		break;
 	case SDL_SCANCODE_SPACE:
 		break;
@@ -88,4 +102,3 @@ void Player::UpdateCurrAnimation()
 		SetStartFrame(15);
 	}
 }
-

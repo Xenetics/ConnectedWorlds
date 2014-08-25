@@ -32,8 +32,8 @@ void SpriteAnimation::Update(float deltaTime)
 
 void SpriteAnimation::Draw(SDL_Renderer* rend, const Vec2& cameraPos) 
 {
-	destR->x = pos_.x - spriteSize_.x / 2;
-	destR->y = pos_.y - spriteSize_.y / 2;
+	destR->x = pos_.x + cameraPos.x - spriteSize_.x / 2;
+	destR->y = pos_.y + cameraPos.y - spriteSize_.y / 2;
 	destR->w = spriteSize_.x;
 	destR->h = spriteSize_.y;
 

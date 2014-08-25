@@ -38,7 +38,7 @@ public:
 	float GetWidth()
 	{
 		float length1, length2;
-		int temp = layers[currentLayer].objects.size();
+		int temp = layers[currentLayer].objects.size() - 1;
 		length1 = layers[currentLayer].objects[temp]->getSize().x * 0.5;
 
 		length2 = layers[currentLayer].objects[temp]->getPos().x;

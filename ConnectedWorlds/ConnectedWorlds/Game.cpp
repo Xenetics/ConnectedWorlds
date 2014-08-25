@@ -121,33 +121,23 @@ void Game::Clean()
 void Game::Update(float deltaTime)
 {
 	player->Update(deltaTime);
+
+	updateCamera();
 }
 
 void Game::updateCamera()
 {
-	cameraPos = player->getPos();
-	cameraPos.x -= DEFAULT_SCREEN_WIDTH / 2.0f;
-	//cameraPos.y -= DEFAULT_SCREEN_WIDTH / 2.0f;
-
 	//now keep camera within level bounds
-	if (cameraPos.x < -world->getWidth() / 2.0f)
-	{
-		cameraPos.x = -world->getWidth() / 2.0f;
+	if ((player->getPos().x + cameraPos.x) > DEFAULT_SCREEN_WIDTH * 0.8) {
+		cameraPos.x -= player->velocity.x;
 	}
-	else if (cameraPos.x + DEFAULT_SCREEN_WIDTH >(world->getWidth() / 2.0f))
-	{
-		cameraPos.x = (world->getWidth() / 2.0f) - DEFAULT_SCREEN_WIDTH;
+
+	if ((player->getPos().x + cameraPos.x) < DEFAULT_SCREEN_WIDTH * 0.2) {
+		cameraPos.x -= player->velocity.x;
 	}
-	/*
-	if (cameraPos.y < -pCurrLevel_->GetHeight() / 2.0f)
-	{
-		cameraPos.y = -pCurrLevel_->GetHeight() / 2.0f;
-	}
-	else if (cameraPos.y + screenHeight_ >(pCurrLevel_->GetHeight() / 2.0f))
-	{
-		cameraPos.y = (pCurrLevel_->GetHeight() / 2.0f) - screenHeight_;
-	}*/
 }
+
+
 /*
 void Game::checkPlayerBounds()
 {
