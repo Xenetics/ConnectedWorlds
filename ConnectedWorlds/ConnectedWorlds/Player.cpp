@@ -16,7 +16,10 @@ void Player::Update(float deltaTime)//make this affected by delta time
 		velocity.x += acc.x;
 	};
 
-	velocity.y += acc.y;
+	if (!onGround)
+	{
+		velocity.y += acc.y;
+	}
 
 	SpriteAnimation::Update(deltaTime);
 }
