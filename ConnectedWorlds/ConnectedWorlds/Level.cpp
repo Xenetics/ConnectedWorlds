@@ -24,31 +24,31 @@ void Level::BuildLayers(int levelOrder[])
 			layers[0].objects.push_back(new Object(pSpriteSheet_, Vec2(800.0f, 600.0f), Vec2(500.0f, 100.0f), Vec2(0.0f, 350.0f), Vec2(100.0f, 100.0f)));
 			layers[0].objects.push_back(new Object(pSpriteSheet_, Vec2(01300.0f, 600.0f), Vec2(3820.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
 			break;		
-		case WATER:
+		case ICE:
 			layers[1].isActive = true;
-			layers[1].tintRGB[0] = 64;
+			layers[1].tintRGB[0] = 0;
 			layers[1].tintRGB[1] = 128;
-			layers[1].tintRGB[2] = 128;
+			layers[1].tintRGB[2] = 255;
 			//layers[1].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));
 			layers[1].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 600.0f), Vec2(800.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
 			layers[1].objects.push_back(new Object(pSpriteSheet_, Vec2(800.0f, 600.0f), Vec2(500.0f, 100.0f), Vec2(0.0f, 350.0f), Vec2(100.0f, 100.0f)));
 			layers[1].objects.push_back(new Object(pSpriteSheet_, Vec2(01300.0f, 600.0f), Vec2(3820.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
 			break;
-		case ICE:
+		case FIRE:
 			layers[2].isActive = true;
-			layers[2].tintRGB[0] = 0;
+			layers[2].tintRGB[0] = 255;
 			layers[2].tintRGB[1] = 128;
-			layers[2].tintRGB[2] = 255;
+			layers[2].tintRGB[2] = 0;
 			//layers[2].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));
 			layers[2].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 600.0f), Vec2(800.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
 			layers[2].objects.push_back(new Object(pSpriteSheet_, Vec2(800.0f, 600.0f), Vec2(500.0f, 100.0f), Vec2(0.0f, 350.0f), Vec2(100.0f, 100.0f)));
 			layers[2].objects.push_back(new Object(pSpriteSheet_, Vec2(01300.0f, 600.0f), Vec2(3820.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
 			break;
-		case FIRE:
+		case WATER:
 			layers[3].isActive = true;
-			layers[3].tintRGB[0] = 255;
+			layers[3].tintRGB[0] = 64;
 			layers[3].tintRGB[1] = 128;
-			layers[3].tintRGB[2] = 0;
+			layers[3].tintRGB[2] = 128;
 			//layers[3].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 605.0f), Vec2(1280.0f, 90.0f), Vec2(0.0f, 605.0f)));
 			layers[3].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 600.0f), Vec2(800.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
 			layers[3].objects.push_back(new Object(pSpriteSheet_, Vec2(800.0f, 600.0f), Vec2(500.0f, 100.0f), Vec2(0.0f, 350.0f), Vec2(100.0f, 100.0f)));
@@ -112,16 +112,16 @@ void Level::Draw(SDL_Renderer* rend, Vec2 cameraPos)
 		frontLayer = activeLayers.size() - 1;
 	}
 
-	SDL_Log("%d", frontLayer);
+	//SDL_Log("%d", frontLayer);
 
-	SDL_Log("Layer draw order");
+	//SDL_Log("Layer draw order");
 	for (int i = activeLayers.size(); i > 0; i--)
 	{
-		SDL_Log("Layer: %d, Draw Positon: %d", frontLayer, i);
+		//SDL_Log("Layer: %d, Draw Positon: %d", frontLayer, i);
 		Layer* temp = activeLayers.at(frontLayer);
 		for (int j = 0; j < temp->objects.size(); j++)
 		{
-			SDL_Log("%f, %f", pow(0.92f, i - 1), pow(0.8f, i - 1));
+			//SDL_Log("%f, %f", pow(0.92f, i - 1), pow(0.8f, i - 1));
 			temp->objects[j]->Draw(rend, cameraPos, Vec2(pow(0.92f, i - 1), pow(0.8f, i - 1)), temp->tintRGB[0], temp->tintRGB[1], temp->tintRGB[2], 255 - (30 * i));
 		}
 		frontLayer--;
