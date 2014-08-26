@@ -23,6 +23,7 @@ void Level::BuildLayers(int levelOrder[])
 			layers[0].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 600.0f), Vec2(800.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
 			layers[0].objects.push_back(new Object(pSpriteSheet_, Vec2(800.0f, 600.0f), Vec2(500.0f, 100.0f), Vec2(0.0f, 350.0f), Vec2(100.0f, 100.0f)));
 			layers[0].objects.push_back(new Object(pSpriteSheet_, Vec2(01300.0f, 600.0f), Vec2(3820.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
+			layers[0].objects.push_back(new Object(pSpriteSheet_, Vec2(1550.0f, 400.0f), Vec2(200.0f, 200.0f), Vec2(1000.0f, 0.0f), Vec2(200.0f, 200.0f)));
 			break;		
 		case ICE:
 			layers[1].isActive = true;
@@ -33,6 +34,7 @@ void Level::BuildLayers(int levelOrder[])
 			layers[1].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 600.0f), Vec2(800.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
 			layers[1].objects.push_back(new Object(pSpriteSheet_, Vec2(800.0f, 600.0f), Vec2(500.0f, 100.0f), Vec2(0.0f, 350.0f), Vec2(100.0f, 100.0f)));
 			layers[1].objects.push_back(new Object(pSpriteSheet_, Vec2(01300.0f, 600.0f), Vec2(3820.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
+			layers[1].objects.push_back(new Object(pSpriteSheet_, Vec2(1550.0f, 400.0f), Vec2(200.0f, 200.0f), Vec2(1000.0f, 200.0f), Vec2(200.0f, 200.0f)));
 			break;
 		case FIRE:
 			layers[2].isActive = true;
@@ -43,6 +45,7 @@ void Level::BuildLayers(int levelOrder[])
 			layers[2].objects.push_back(new Object(pSpriteSheet_, Vec2(0.0f, 600.0f), Vec2(800.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
 			layers[2].objects.push_back(new Object(pSpriteSheet_, Vec2(800.0f, 600.0f), Vec2(500.0f, 100.0f), Vec2(0.0f, 350.0f), Vec2(100.0f, 100.0f)));
 			layers[2].objects.push_back(new Object(pSpriteSheet_, Vec2(01300.0f, 600.0f), Vec2(3820.0f, 100.0f), Vec2(0.0f, 0.0f), Vec2(100.0f, 100.0f)));
+			layers[2].objects.push_back(new Object(pSpriteSheet_, Vec2(1550.0f, 400.0f), Vec2(200.0f, 200.0f), Vec2(1000.0f, 200.0f), Vec2(200.0f, 200.0f)));
 			break;
 		case WATER:
 			layers[3].isActive = true;
