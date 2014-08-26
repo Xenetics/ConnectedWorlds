@@ -15,12 +15,17 @@ protected:
 
 	Vec2 pos_; // position in world
 	Vec2 ssPos_; // possition of sprite sheet
+	Vec2 ssSize_; //asfiuhbiu
 	Vec2 spriteSize_; // size of prite 
 public:
 	Sprite() : pImage_(0)
 	{}
-	Sprite(SDL_Texture* image, Vec2 pos, Vec2 spriteSize, Vec2 ssPos = Vec2(0.0f, 0.0f)) : pImage_(image), pos_(pos), ssPos_(ssPos), spriteSize_(spriteSize)
+	Sprite(SDL_Texture* image, Vec2 pos, Vec2 spriteSize, Vec2 ssPos = Vec2(0.0f, 0.0f), Vec2 ssSize = Vec2(0.0f, 0.0f)) : pImage_(image), pos_(pos), ssPos_(ssPos), spriteSize_(spriteSize), ssSize_(ssSize)
 	{
+		if (ssSize == Vec2(0.0f, 0.0f))
+		{
+			ssSize_ = spriteSize_;
+		}
 		destR = new SDL_Rect();
 		destL = new SDL_Rect();
 	}

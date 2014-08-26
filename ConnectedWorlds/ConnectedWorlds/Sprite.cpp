@@ -12,15 +12,15 @@ void Sprite::Draw(SDL_Renderer* rend, const Vec2& cameraPos, Vec2 scale, int r, 
 
 	if (ssPos_ == Vec2(0.0f, 0.0f))
 	{
-		destL->w = spriteSize_.x;
-		destL->h = spriteSize_.y;
+		destL->w = ssSize_.x;
+		destL->h = ssSize_.y;
 		destL->x = ssPos_.x;
 		destL->y = ssPos_.y;
 	}
 	else
 	{
-		destL->w = spriteSize_.x;
-		destL->h = spriteSize_.y;
+		destL->w = ssSize_.x;
+		destL->h = ssSize_.y;
 		destL->x = ssPos_.x;
 		destL->y = ssPos_.y;
 	}
