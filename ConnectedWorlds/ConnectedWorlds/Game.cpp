@@ -32,7 +32,7 @@ void Game::InitGame()
 	//pSpriteSheet = IMG_LoadTexture(sdlRenderer, "Untitled.bmp");
 	playerSpriteSheet = IMG_LoadTexture(sdlRenderer, "player.png");
 
-	pSpriteSheet = IMG_LoadTexture(sdlRenderer, "tilesheet.png");
+	pSpriteSheet = IMG_LoadTexture(sdlRenderer, "spriteSheet.png");
 
 	world = new World(pSpriteSheet);
 	player = new Player(playerSpriteSheet,Vec2(300.0f, 400.0f),Vec2(60.0f, 100.0f),Vec2(3.0f,12.0f),Vec2(360.0f,200.0f),7,true);
