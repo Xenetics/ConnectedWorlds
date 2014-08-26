@@ -7,7 +7,6 @@ Player::~Player()
 
 void Player::Update(float deltaTime)//make this affected by delta time
 {
-	onGround = false;
 	// Calculate velocity based on pixels-per-frame
 	pos_.x += velocity.x * deltaTime;
 	pos_.y += velocity.y * deltaTime;
@@ -17,9 +16,7 @@ void Player::Update(float deltaTime)//make this affected by delta time
 		velocity.x += acc.x;
 	};
 
-	if (abs(velocity.y) < 100) {
-		velocity.y += acc.y;
-	};
+	velocity.y += acc.y;
 
 	SpriteAnimation::Update(deltaTime);
 }
@@ -35,11 +32,6 @@ void Player::OnKeyDown(Uint16 key)
 		velocity.x = 1 * -playerSpeed;
 		break;
 	case SDL_SCANCODE_SPACE:
-		if (onGround)
-		{
-			velocity.y = -1 * jumpSpeed;
-			//need jump timer, max hold space bar timer and then gravity pulls down darude.
-		}
 		break;
 	}
 	if (!playing_)
@@ -60,8 +52,13 @@ void Player::OnKeyUp(Uint16 key)
 		velocity.x = 0;
 		break;
 	case SDL_SCANCODE_SPACE:
-		velocity.y = 0;
-		onGround = false;
+		if (onGround)
+		{
+			velocity.y = -1 * jumpSpeed;
+			onGround = false;
+			//velocity.y = -1 * jumpSpeed;
+			//need jump timer, max hold space bar timer and then gravity pulls down darude.
+		}
 		break;
 	}
 	if (!playing_)

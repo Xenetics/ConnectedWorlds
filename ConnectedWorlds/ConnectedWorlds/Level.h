@@ -15,7 +15,11 @@ public:
 		switch(levelIndex)
 		{
 		case 1:
-			int makeLayers[7] = { NORMAL, WATER, ICE, FIRE, SPACE, STORM, DESERT };
+			for (int i = 0; i < 7; i++)
+			{
+				layers[i].isActive = false;
+			}
+			int makeLayers[3] = { NORMAL, ICE, FIRE };
 			BuildLayers(makeLayers);
 			break;
 		}
@@ -31,7 +35,7 @@ public:
 		int elementType;
 		bool isActive;
 		float layerGravity;
-		SDL_Color layerTintCol;
+		int tintRGB[3];
 	};
 	Layer layers[7];
 
@@ -54,6 +58,28 @@ public:
 			temp.x += layers[currentLayer].objects[i]->getPos().x;
 			temp.y += layers[currentLayer].objects[i]->getPos().y;
 			ret.push_back(temp);
+		}
+		return ret;
+	}
+	void IncrementLayer()
+	{
+		currentLayer++;
+		if (currentLayer > ActiveLayers() - 1)
+		{
+			currentLayer = 0;
+		}
+		SDL_Log("%d", currentLayer);
+	}
+
+	int ActiveLayers()
+	{
+		int ret = 0;
+		for (int i = 0; i < 7; i++)
+		{
+			if (layers[i].isActive)
+			{
+				ret++;
+			}
 		}
 		return ret;
 	}

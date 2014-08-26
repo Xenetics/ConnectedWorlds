@@ -104,6 +104,7 @@ void Game::OnKeyDown(Uint16 key)
 	{
 	case SDL_SCANCODE_UP:
 		//scroll to next dimenion up
+		world->GetCurLevel()->IncrementLayer();
 		break;
 	case SDL_SCANCODE_DOWN:
 		//scroll to next dimention down
@@ -173,7 +174,7 @@ void Game::DoCollisions()
 			player->setPos(player->getPos() + ret);
 			if (ret.y < 0.0f)
 			{
-				if (player->onGround = false)
+				if (player->onGround == false)
 				{
 					player->onGround = true;
 				}
