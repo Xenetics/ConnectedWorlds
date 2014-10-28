@@ -14,12 +14,12 @@ public:
 	{
 		switch(levelIndex)
 		{
-		case 1:
+		case 1://level 1
 			for (int i = 0; i < 7; i++)
 			{
 				layers[i].isActive = false;
 			}
-			int makeLayers[3] = { NORMAL, ICE, FIRE };
+			int makeLayers[5] = { NORMAL, ICE, FIRE, DESERT, STORM};
 			BuildLayers(makeLayers);
 			break;
 		}
@@ -51,12 +51,29 @@ public:
 
 	std::vector<SDL_Rect> GetObjectRects()
 	{
-		std::vector<SDL_Rect> ret;
-		for (int i = 0; i < layers[currentLayer].objects.size(); i++)
+		std::vector<Layer *> activeLayers;
+		int frontLayer = currentLayer;
+
+		for (int i = 0; i < 7; i++)
 		{
-			SDL_Rect temp = SDL_Rect(layers[currentLayer].objects[i]->colRect);
-			temp.x += layers[currentLayer].objects[i]->getPos().x;
-			temp.y += layers[currentLayer].objects[i]->getPos().y;
+			if (layers[i].isActive)
+			{
+				activeLayers.push_back(&layers[i]);
+			}
+		}
+
+		frontLayer--;
+		if (frontLayer < 0)
+		{
+			frontLayer = activeLayers.size() - 1;
+		}
+
+		std::vector<SDL_Rect> ret;
+		for (int i = 0; i < activeLayers[frontLayer]->objects.size(); i++)
+		{
+			SDL_Rect temp = SDL_Rect(activeLayers[frontLayer]->objects[i]->colRect);
+			temp.x += activeLayers[frontLayer]->objects[i]->getPos().x;
+			temp.y += activeLayers[frontLayer]->objects[i]->getPos().y;
 			ret.push_back(temp);
 		}
 		return ret;

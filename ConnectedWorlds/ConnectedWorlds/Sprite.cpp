@@ -2,10 +2,11 @@
 #include "SDL.h"
 #include "MathUtils.h"
 void Sprite::Draw(SDL_Renderer* rend, const Vec2& cameraPos, Vec2 scale, int r, int g, int b, int a)
-{
-	//maybe we dont need this SDL_RLEACCEL 
-	
-	destR->x = (pos_.x + cameraPos.x) + (1280 - 1280 * scale.x) / 2;
+{	
+	if (scale.x == 1)
+		destR->x = (pos_.x + cameraPos.x) * scale.x;
+	else
+		destR->x = ((pos_.x + cameraPos.x) * scale.x);// -(1 - scale.x);//almost
 	destR->y = (pos_.y + cameraPos.y) * scale.y;
 	destR->w = spriteSize_.x * scale.x;
 	destR->h = spriteSize_.y * scale.y;
