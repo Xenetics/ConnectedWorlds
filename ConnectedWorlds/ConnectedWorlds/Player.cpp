@@ -35,6 +35,13 @@ void Player::OnKeyDown(Uint16 key)
 		velocity.x = 1 * -playerSpeed;
 		break;
 	case SDL_SCANCODE_SPACE:
+		if (onGround)
+		{
+			velocity.y = -1 * jumpSpeed;
+			onGround = false;
+			//velocity.y = -1 * jumpSpeed;
+			//need jump timer, max hold space bar timer and then gravity pulls down darude.
+		}
 		break;
 	}
 	if (!playing_)
@@ -55,13 +62,7 @@ void Player::OnKeyUp(Uint16 key)
 		velocity.x = 0;
 		break;
 	case SDL_SCANCODE_SPACE:
-		if (onGround)
-		{
-			velocity.y = -1 * jumpSpeed;
-			onGround = false;
-			//velocity.y = -1 * jumpSpeed;
-			//need jump timer, max hold space bar timer and then gravity pulls down darude.
-		}
+		
 		break;
 	}
 	if (!playing_)
@@ -103,4 +104,10 @@ void Player::UpdateCurrAnimation()
 		currentAnim = ANIM_IDLE_LEFT;
 		SetStartFrame(15);
 	}
+}
+
+void Player::Die()
+{
+	pos_ = initPos;
+	onGround = false;
 }

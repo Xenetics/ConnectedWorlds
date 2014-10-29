@@ -30,7 +30,7 @@ void SpriteAnimation::Update(float deltaTime)
 	frames_xy_.x = anims_[animation].numFrames;
 }*/
 
-void SpriteAnimation::Draw(SDL_Renderer* rend, const Vec2& cameraPos) 
+void SpriteAnimation::Draw(SDL_Renderer* rend, const Vec2& cameraPos, int r, int g, int b, int a)
 {
 	destR->x = pos_.x + cameraPos.x - spriteSize_.x / 2;
 	destR->y = pos_.y + cameraPos.y - spriteSize_.y / 2;
@@ -39,6 +39,8 @@ void SpriteAnimation::Draw(SDL_Renderer* rend, const Vec2& cameraPos)
 
 	SDL_RenderCopy(rend, pImage_, &srcRect_, destR);
 
+	SDL_SetTextureAlphaMod(pImage_, a);
+	SDL_SetTextureColorMod(pImage_, r, g, b);
 	SDL_RenderPresent(rend);
 }
 

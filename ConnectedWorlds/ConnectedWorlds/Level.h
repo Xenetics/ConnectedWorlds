@@ -19,7 +19,7 @@ public:
 			{
 				layers[i].isActive = false;
 			}
-			int makeLayers[5] = { NORMAL, ICE, FIRE, DESERT, STORM};
+			int makeLayers[5] = { NORMAL, ICE, FIRE};
 			BuildLayers(makeLayers);
 			break;
 		}
@@ -32,7 +32,7 @@ public:
 	struct Layer
 	{
 		std::vector<Object*> objects;
-		int elementType;
+		levelNames elementType;
 		bool isActive;
 		float layerGravity;
 		int tintRGB[3];
@@ -61,8 +61,6 @@ public:
 				activeLayers.push_back(&layers[i]);
 			}
 		}
-
-		frontLayer--;
 		if (frontLayer < 0)
 		{
 			frontLayer = activeLayers.size() - 1;
@@ -71,13 +69,57 @@ public:
 		std::vector<SDL_Rect> ret;
 		for (int i = 0; i < activeLayers[frontLayer]->objects.size(); i++)
 		{
-			SDL_Rect temp = SDL_Rect(activeLayers[frontLayer]->objects[i]->colRect);
+			SDL_Rect temp = SDL_Rect(activeLayers[frontLayer]->objects[i]->GetRect());
 			temp.x += activeLayers[frontLayer]->objects[i]->getPos().x;
 			temp.y += activeLayers[frontLayer]->objects[i]->getPos().y;
 			ret.push_back(temp);
 		}
 		return ret;
 	}
+
+	levelNames GetCurrentType()
+	{
+		std::vector<Layer *> activeLayers;
+		int frontLayer = currentLayer;
+
+		for (int i = 0; i < 7; i++)
+		{
+			if (layers[i].isActive)
+			{
+				activeLayers.push_back(&layers[i]);
+			}
+		}
+
+		if (frontLayer < 0)
+		{
+			frontLayer = activeLayers.size() - 1;
+		}
+
+		return layers[frontLayer].elementType;
+	}
+
+	Object* GetActiveObject(int index)
+	{
+		std::vector<Layer *> activeLayers;
+		int frontLayer = currentLayer;
+
+		for (int i = 0; i < 7; i++)
+		{
+			if (layers[i].isActive)
+			{
+				activeLayers.push_back(&layers[i]);
+			}
+		}
+
+		if (frontLayer < 0)
+		{
+			frontLayer = activeLayers.size() - 1;
+		}
+		
+		return layers[frontLayer].objects[index];
+	}
+
+
 	void IncrementLayer()
 	{
 		currentLayer++;
@@ -85,7 +127,20 @@ public:
 		{
 			currentLayer = 0;
 		}
-		SDL_Log("%d", currentLayer);
+		//SDL_Log("%d", currentLayer);
+
+
+
+	}
+
+	void DecrementLayer()
+	{
+		currentLayer--;
+		if (currentLayer < 0)
+		{
+			currentLayer = ActiveLayers() - 1;
+		}
+		//SDL_Log("%d", currentLayer);
 	}
 
 	int ActiveLayers()

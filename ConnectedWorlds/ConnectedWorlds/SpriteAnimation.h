@@ -51,7 +51,7 @@ public:
 
 	virtual void Update(float deltaTime);
 
-	virtual void Draw(SDL_Renderer* rend, const Vec2& cameraPosz);
+	virtual void Draw(SDL_Renderer* rend, const Vec2& cameraPosz, int r = 255, int g = 255, int b = 255, int a = 255);
 
 	void Play(bool loop = false)
 	{

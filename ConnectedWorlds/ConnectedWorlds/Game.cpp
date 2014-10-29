@@ -105,8 +105,15 @@ void Game::OnKeyDown(Uint16 key)
 	case SDL_SCANCODE_UP:
 		//scroll to next dimenion up
 		world->GetCurLevel()->IncrementLayer();
+		if (player->currentType == NORMAL)
+			player->currentType = world->GetCurLevel()->GetCurrentType();
+		SDL_Log("Current Type: %d", player->currentType);
 		break;
 	case SDL_SCANCODE_DOWN:
+		world->GetCurLevel()->DecrementLayer();
+		if (player->currentType == NORMAL)
+			player->currentType = world->GetCurLevel()->GetCurrentType();
+		SDL_Log("Current Type: %d", player->currentType);
 		//scroll to next dimention down
 		break;
 	case SDL_SCANCODE_ESCAPE:
@@ -136,6 +143,12 @@ void Game::Clean()
 void Game::Update(float deltaTime)
 {
 	player->Update(deltaTime);
+	//see if player is dead
+	if (player->getPos().y > 1200)
+	{
+		player->Die();
+		CenterCamera();
+	}
 	DoCollisions();
 	updateCamera(deltaTime);
 	
@@ -153,6 +166,12 @@ void Game::updateCamera(float deltaTime)
 	}
 }
 
+void Game::CenterCamera()
+{
+	//y too?
+	cameraPos.x = (DEFAULT_SCREEN_WIDTH * 0.5) - player->getPos().x;
+}
+
 
 void Game::DoCollisions()
 {
@@ -167,21 +186,36 @@ void Game::DoCollisions()
 		Vec2 temp;
 		Vec2 objPos = Vec2(colRects[i].x + (colRects[i].w * 0.5), colRects[i].y + (colRects[i].h * 0.5));
 		Vec2 ret = Collision::RectToRectCollision(playerPos, playerW, playerH, objPos, colRects[i].w, colRects[i].h);
-		if (VectorMath::Magnitude(&ret) > VectorMath::Magnitude(&temp))
+		if (VectorMath::Magnitude(&ret) > VectorMath::Magnitude(&temp))//yes you hit something
 		{
 			temp = ret;
 			//handle collision here
-			player->setPos(player->getPos() + ret);
-			if (ret.y < 0.0f)
+			Object* collision = world->GetCurLevel()->GetActiveObject(i);
+			if (collision->isSolid)
 			{
-				if (player->onGround == false)
+				player->setPos(player->getPos() + ret);
+				if (ret.y < 0.0f)//you hit the ground
 				{
-					player->onGround = true;
+					if (player->onGround == false)
+					{
+						player->onGround = true;
+					}
+				}
+			}
+			if (collision->killOnTouch)
+			{
+				player->Die();
+				CenterCamera();
+			}
+			if (collision->destroyable)
+			{
+				if (collision->type == ICE && player->currentType == FIRE)
+				{
+					collision->isSolid = false;
+					collision->isVisable = false;
+					player->currentType = NORMAL;
 				}
 			}
 		}	
 	}
-
-
-	
 }

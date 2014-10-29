@@ -20,6 +20,7 @@ private:
 	void Draw();
 	void LoadAssets();
 	void Update(float deltaTime);
+	void CenterCamera();
 
 	bool running_;
 
